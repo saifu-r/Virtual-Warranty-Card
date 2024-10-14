@@ -9,4 +9,9 @@ export class HomePage {
 
   constructor() {}
 
+  cardClick(){
+    console.log("hello");
+    
+  }
+
 }
