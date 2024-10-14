@@ -1,0 +1,7 @@
+{
+  "name": "Virtual Warranty Card",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
