@@ -12,7 +12,7 @@ export class LoginPagePage implements OnInit {
   constructor(private router: Router, private formBuilder: FormBuilder) { }
 
 
-  LoginForm = this.formBuilder.group({
+  loginForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
     age: ['', Validators.required],
@@ -23,7 +23,7 @@ export class LoginPagePage implements OnInit {
   }
 
   submitForm(){
-    console.log(this.LoginForm);
+    console.log(this.loginForm);
     
   }
 
