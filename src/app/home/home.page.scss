@@ -27,17 +27,17 @@
 }
 
 
-.profile-card {
-  background-color: #b4b4b4;
+.card {
+  // background-image: linear-gradient(to right, #7F00FF, #FF007F);
+  border: 0.5px solid black;
   border-radius: 15px;
   padding: 20px;
-  text-align: center;
+  // text-align: center;
 }
 
 .profile-header {
   display: flex;
   align-items: center;
-  justify-content: center;
   margin-bottom: 20px;
 }
 
@@ -60,13 +60,13 @@ ion-icon {
 .status-section h1 {
   font-size: 24px;
   margin: 20px 0 10px;
-  color: #e5dbff;
+  color: #000000;
 }
 
 .status-section p {
   font-size: 14px;
   margin: 0;
-  color: #b0b4c1;
+  color: #000000;
 }
 
 .rewards-section ion-button {
