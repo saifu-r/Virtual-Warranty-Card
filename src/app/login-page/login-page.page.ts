@@ -13,9 +13,9 @@ export class LoginPagePage implements OnInit {
 
 
   loginForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
-    age: ['', Validators.required],
+    password: ['', [Validators.required]],
+
 
   })
 
@@ -23,7 +23,11 @@ export class LoginPagePage implements OnInit {
   }
 
   submitForm(){
-    console.log(this.loginForm);
+
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value);
+    }
+   
     
   }
 

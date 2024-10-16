@@ -16,7 +16,7 @@ export class SignupPagePage implements OnInit {
 
   login(){
     this.router.navigate(['/login-page'])
-    console.log("hello");
+    
   }
 
 }
