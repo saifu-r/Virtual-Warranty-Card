@@ -25,7 +25,10 @@ export class LoginPagePage implements OnInit {
   submitForm(){
 
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      // console.log(this.loginForm.value);
+      const userEmail: string= this.loginForm.value.email || ""
+      localStorage.setItem("userEmail", userEmail )
+      this.router.navigate(['/home'])
     }
    
     
@@ -33,8 +36,6 @@ export class LoginPagePage implements OnInit {
 
   signup(){
     this.router.navigate(['/signup-page'])
-    console.log("hello");
-    
   }
 
 }

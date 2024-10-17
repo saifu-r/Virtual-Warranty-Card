@@ -7,12 +7,12 @@
 <ion-content class="ion-padding" [fullscreen]="true">
   <div class="card">
     <p class="title">Welcome back</p>
-    <form class="form">
-      <input type="text" class="input" placeholder="Name">
-      <input type="email" class="input" placeholder="Email">
-      <input type="number" class="input" placeholder="Age">
-      <input type="date" class="input" placeholder="Date of Birth">
-      <input type="password" class="input" placeholder="Password">
+    <form class="form" [formGroup]="signinForm" (ngSubmit)="submitForm()">
+      <input type="text" class="input" placeholder="Name" formControlName="name">
+      <input type="email" class="input" placeholder="Email" formControlName="email">
+      <input type="number" class="input" placeholder="Age" formControlName="age">
+      <input type="date" class="input" placeholder="Date of Birth" formControlName="DOB">
+      <input type="password" class="input" placeholder="Password" formControlName="password">
       <p class="page-link">
         <span class="page-link-label">Forgot Password?</span>
       </p>

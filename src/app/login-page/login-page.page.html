@@ -9,8 +9,8 @@
   <div class="card">
     <p class="title">Welcome back</p>
     <form class="form" [formGroup]="loginForm" (ngSubmit)="submitForm()">
-      <input type="email" class="input" placeholder="Email">
-      <input type="password" class="input" placeholder="Password">
+      <input type="email" class="input" placeholder="Email" formControlName="email">
+      <input type="password" class="input" placeholder="Password" formControlName="password">
       <p class="page-link">
         <span class="page-link-label">Forgot Password?</span>
       </p>
