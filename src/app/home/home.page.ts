@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -6,12 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  isCardVisible: boolean= true
+
+  icons= {
+    faXmark: faXmark
+  }
 
   constructor() {}
 
   cardClick(){
     console.log("hello");
     
+  }
+
+  hideCard(){
+    this.isCardVisible= false
   }
 
 }

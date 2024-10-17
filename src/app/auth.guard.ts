@@ -2,7 +2,7 @@ import { CanActivateFn, Router } from '@angular/router';
 
 export const authGuard: CanActivateFn = (route, state) => {
   // localStorage.setItem('authItem', '12345')
-  const token= localStorage.getItem("userName")
+  const token= localStorage.getItem("userEmail")
 
 
   if(token){

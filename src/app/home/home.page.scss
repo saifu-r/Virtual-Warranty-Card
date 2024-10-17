@@ -27,17 +27,19 @@
 }
 
 
+.card-container{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 40%;
+}
+
+
 .card {
   // background-image: linear-gradient(to right, #7F00FF, #FF007F);
   border: 0.5px solid black;
   border-radius: 15px;
   padding: 20px;
-
-  // position: absolute;
-  // top: 35%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-  width: 100%;
 }
 
 .profile-header {
@@ -94,8 +96,29 @@ ion-icon {
   display: inline-block;
 }
 
+
+.img-card {
+  position: relative; /* Make the container a relative positioning context */
+  display: inline-block; /* Adjust depending on layout */
+}
+
+.Xmark-icon {
+  position: absolute;
+  top: 10px;  /* Adjust as needed */
+  right: 10px;  /* Adjust as needed */
+  cursor: pointer; /* Optional: Make it clickable */
+  font-size: 20px; /* Adjust icon size */
+  // color: #ff0000;  /* Optional: Color for the icon */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto; /* Ensure the image is responsive */
+}
+
 @media (max-width: 992px) {
-  .card {
-    width: 100%;
+  .card-container {
+    width: 90%;
   }
 }
