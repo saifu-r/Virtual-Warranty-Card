@@ -6,7 +6,7 @@
 
     <ion-buttons slot="end" class="ion-margin-top">
       <div class="profile-header">
-        <ion-icon name="cart-sharp" style="color: #2e2e2e; cursor: pointer;"></ion-icon>
+        <ion-icon name="cart-sharp" style="color: #2e2e2e; cursor: pointer;" id="open-modal"></ion-icon>
       </div>
       <div class="profile-header" (click)="showHideDropdown()">
         <ion-icon name="person-circle-sharp" style="color: #2e2e2e; cursor: pointer;"></ion-icon>
@@ -15,25 +15,26 @@
   </ion-toolbar>
 </ion-header>
 
+<div class="profile-dropdown" *ngIf="isDropdownActive">
+  <div class="profile-header">
+    <ion-icon name="person-circle-outline" style="color: black;"></ion-icon>
+    <div class="profile-info">
+      <h2>Saifur Rahman</h2>
+      <p>saifur&#64;gmail.com</p>
+    </div>
+  </div>
+  <hr>
+  <p><fa-icon [icon]="icons.faRotateRight"></fa-icon> Refresh</p>
+  <p><fa-icon [icon]="icons.faGear"></fa-icon> Setting</p>
+  <p (click)="logout()"><fa-icon [icon]="icons.faArrowRightFromBracket"></fa-icon> Logout</p>
+</div>
+
+
 <ion-content [fullscreen]="true">
 
-  <div class="profile-dropdown" *ngIf="isDropdownActive" >
-    <div class="profile-header">
-      <ion-icon name="person-circle-outline" style="color: black;"></ion-icon>
-      <div class="profile-info">
-        <h2>Saifur Rahman</h2>
-        <p>saifur&#64;gmail.com</p>
-      </div>
-    </div>
-    <hr>
-    <p><fa-icon [icon]="icons.faRotateRight"></fa-icon> Refresh</p>
-    <p><fa-icon [icon]="icons.faGear"></fa-icon> Setting</p>
-    <p (click)="logout()"><fa-icon [icon]="icons.faArrowRightFromBracket"></fa-icon> Logout</p>
-  </div>
 
-  <div class="cart-dropdown">
-    
-  </div>
+
+
 
   <div class="ion-padding card-container">
     <div class="card" style="background-color: rgb(235, 235, 235);" *ngIf="false">
@@ -139,11 +140,36 @@
       </ion-col>
     </ion-row>
 
-    
-
-
   </div>
 
+  <!-- <ion-button id="open-modal" expand="block">Open</ion-button> -->
+  <!-- <p>{{ message }}</p> -->
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Welcome</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input
+            label="Enter your name"
+            labelPlacement="stacked"
+            type="text"
+            placeholder="Your name"
+            [(ngModel)]="name"
+          ></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 
 
 </ion-content>
