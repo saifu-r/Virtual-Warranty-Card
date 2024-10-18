@@ -69,7 +69,8 @@
       <div class="warranty-details">
         <ion-row>
           <ion-col size="6">
-            <img src="../../assets/images/QRcodes.png" alt="code">
+            
+            <qrcode [qrdata]="qrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
           </ion-col>
           <ion-col size="6">
             <h3>Warranty No.</h3>
@@ -149,9 +150,9 @@
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-button (click)="cancel()">Cancel</ion-button>
+            <ion-button (click)="cancel()" shape="round"><ion-icon name="close-sharp"  style="color: #2e2e2e;"></ion-icon></ion-button>
           </ion-buttons>
-          <ion-title>Welcome</ion-title>
+          <ion-title>YOUR CART</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
           </ion-buttons>
@@ -159,17 +160,164 @@
       </ion-header>
       <ion-content class="ion-padding">
         <ion-item>
-          <ion-input
-            label="Enter your name"
-            labelPlacement="stacked"
-            type="text"
-            placeholder="Your name"
-            [(ngModel)]="name"
-          ></ion-input>
+          <ion-row>
+            <ion-col size="2">
+              <ion-img src="../../assets/images/product01.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="9">
+              <h3 style="margin: 0;">Excel E65 Pro</h3>
+              <p>৳1100 x 1 = ৳1100</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-col size="2">
+              <ion-img src="../../assets/images/product02.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="9">
+              <h3 style="margin: 0;">Wavefun A05</h3>
+              <p>৳1100 x 1 = ৳1100</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-col size="2">
+              <ion-img src="../../assets/images/product01.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="9">
+              <h3 style="margin: 0;">Excel E65 Pro</h3>
+              <p>৳1100 x 1 = ৳1100</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-col size="2">
+              <ion-img src="../../assets/images/product01.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="9">
+              <h3 style="margin: 0;">Excel E65 Pro</h3>
+              <p>৳1100 x 1 = ৳1100</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-col size="2">
+              <ion-img src="../../assets/images/product01.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="9">
+              <h3 style="margin: 0;">Excel E65 Pro</h3>
+              <p>৳1100 x 1 = ৳1100</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-col size="2">
+              <ion-img src="../../assets/images/product01.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="9">
+              <h3 style="margin: 0;">Excel E65 Pro</h3>
+              <p>৳1100 x 1 = ৳1100</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-col size="2">
+              <ion-img src="../../assets/images/product01.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="9">
+              <h3 style="margin: 0;">Excel E65 Pro</h3>
+              <p>৳1100 x 1 = ৳1100</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-col size="2">
+              <ion-img src="../../assets/images/product01.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="9">
+              <h3 style="margin: 0;">Excel E65 Pro</h3>
+              <p>৳1100 x 1 = ৳1100</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-col size="2">
+              <ion-img src="../../assets/images/product01.jpg"></ion-img>
+            </ion-col>
+            <ion-col size="9">
+              <h3 style="margin: 0;">Excel E65 Pro</h3>
+              <p>৳1100 x 1 = ৳1100</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px;"></ion-icon>
+            </ion-col>
+          </ion-row>
         </ion-item>
       </ion-content>
+
+      <ion-footer>
+        <ion-toolbar class="class="ion-justify-content-center>
+          <ion-item class="class="ion-align-items-center>
+            <h1>Total - XXXXX</h1>
+            
+          </ion-item>
+          <ion-item>
+            <ion-button expand="block" fill="clear" shape="round">
+              Click me
+            </ion-button>
+          </ion-item>
+        </ion-toolbar>
+      </ion-footer>
     </ng-template>
   </ion-modal>
+
+
+  //carousel
+
+  <div id="slider" class="slider">
+		<div class="slider-content">
+			<div class="slider-content-wrapper">
+				<div class="slider-content__item image-1">1</div>
+				<div class="slider-content__item image-2">2</div>
+				<div class="slider-content__item image-3">3</div>
+				<div class="slider-content__item image-4">4</div>
+				<div class="slider-content__item image-5">5</div>
+				<div class="slider-content__item image-6">6</div>
+			</div>
+		</div>
+	</div>
 
 
 </ion-content>

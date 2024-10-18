@@ -4,14 +4,14 @@ import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate: [authGuard]
+    path: '',
+    redirectTo: 'card',
+    pathMatch: 'full'
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'card/:id',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [authGuard]
   },
   {
     path: 'login-page',

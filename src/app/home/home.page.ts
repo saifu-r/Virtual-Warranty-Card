@@ -3,6 +3,7 @@ import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { Router } from '@angular/router';
 import { faXmark, faRotateRight, faGear, faArrowRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -15,11 +16,13 @@ export class HomePage {
   @ViewChild(IonModal) modal!: IonModal;
 
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
-  name: string= "";
-  isCardVisible: boolean= true
-  isDropdownActive= false;
+  name: string = "";
+  isCardVisible: boolean = true
+  isDropdownActive = false;
 
-  icons= {
+  qrCode: string = '';
+
+  icons = {
     faXmark: faXmark,
     faRotateRight: faRotateRight,
     faGear: faGear,
@@ -29,26 +32,33 @@ export class HomePage {
 
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router
+    , private location: Location
+  ) {
+    this.qrCode = window.location.href;
 
-  cardClick(){
+
+
+  }
+
+  cardClick() {
     console.log("hello");
-    
+
   }
 
-  hideCard(){
-    this.isCardVisible= false
+  hideCard() {
+    this.isCardVisible = false
   }
 
-  showHideDropdown(){
-    this.isDropdownActive= !this.isDropdownActive;
+  showHideDropdown() {
+    this.isDropdownActive = !this.isDropdownActive;
     console.log(this.isDropdownActive);
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem("userEmail");
     this.router.navigate(['/login-page'])
-    
+
   }
 
   cancel() {
