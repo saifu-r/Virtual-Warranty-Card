@@ -4,7 +4,7 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { Router } from '@angular/router';
 import { faXmark, faRotateRight, faGear, faArrowRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { Location } from '@angular/common';
-
+    
 
 @Component({
   selector: 'app-home',

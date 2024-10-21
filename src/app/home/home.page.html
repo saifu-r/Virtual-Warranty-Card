@@ -6,9 +6,9 @@
       </ion-buttons>
       <ion-title>Warranty Card</ion-title>
       <ion-buttons slot="end">
-        <ion-button shape="round" fill="clear">
-          <ion-icon slot="icon-only" name="cart-sharp" id="open-modal"></ion-icon>
-        </ion-button>
+        <!-- <ion-button shape="round" fill="clear"> -->
+          <ion-icon shape="round" fill="clear" slot="icon-only" name="cart-sharp" id="open-modal" ></ion-icon>
+        <!-- </ion-button> -->
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
@@ -54,13 +54,11 @@
       <h3>Here is your warranty information</h3>
 
 
-      <div class="card">
-
+      <ion-card>
         <div class="warranty-details">
           <ion-row>
             <ion-col size="6" style="width: 100% !important">
-
-              <qrcode [qrdata]="qrCode" [width]="300" [errorCorrectionLevel]="'M'"></qrcode>
+              <qrcode [qrdata]="qrCode"  [errorCorrectionLevel]="'M'"></qrcode>
             </ion-col>
             <ion-col size="6">
               <h3>Warranty No.</h3>
@@ -71,7 +69,6 @@
           </ion-row>
 
           <h2>Device Information</h2>
-
           <ion-row>
             <ion-col size="4">
               <h6> Device Type</h6>
@@ -85,14 +82,12 @@
               <h6>Brand</h6>
               <p style="font-weight: bold;">Excel</p>
             </ion-col>
-
           </ion-row>
         </div>
 
-      </div>
+      </ion-card>
 
       <p>Follow Below steps to request your warranty claim.</p>
-
       <p>1. Go to my My Account. <br> 2. Tap on Request Claim. <br> 3. Enter Information and Send Claim Request.</p>
 
 
@@ -109,38 +104,42 @@
         <swiper-slide><ion-img src="../../assets/images/poster2.jpg"></ion-img></swiper-slide>
         <swiper-slide><ion-img src="../../assets/images/poster3.jpg"></ion-img></swiper-slide>
         <swiper-slide><ion-img src="../../assets/images/poster4.jpg"></ion-img></swiper-slide>
-
       </swiper-container>
 
       <ion-row>
-        <ion-col size="6" class="glass-card">
+        <ion-col size="6" >
+          <ion-card>
           <ion-img src="../../assets/images/product01.jpg"></ion-img>
           <h5>Product 01</h5>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing e</p>
           <p>৳1200</p>
+          </ion-card>
         </ion-col>
-        <ion-col size="6" class="glass-card">
+        <ion-col size="6" >
+          <ion-card>
           <ion-img src="../../assets/images/product02.jpg"></ion-img>
           <h5>Product 02</h5>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing e</p>
           <p>৳1200</p>
+          </ion-card>
         </ion-col>
-        <ion-col size="6" class="glass-card">
+        <ion-col size="6" >
+          <ion-card>
           <ion-img src="../../assets/images/product01.jpg"></ion-img>
           <h5>Product 03</h5>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing e</p>
           <p>৳1200</p>
+          </ion-card>
         </ion-col>
-        <ion-col size="6" class="glass-card">
+        <ion-col size="6" >
+          <ion-card>
           <ion-img src="../../assets/images/product02.jpg"></ion-img>
           <h5>Product 04</h5>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing e</p>
           <p>৳1200</p>
+          </ion-card>
         </ion-col>
       </ion-row>
-
-
-
     </div>
 
 
@@ -306,29 +305,6 @@
       </ng-template>
     </ion-modal>
 
-    <!-- slider -->
-
-    <!-- <swiper-container>
-      <swiper-slide>
-        <ion-img src="../../assets/images/poster.jpg"></ion-img>
-      </swiper-slide>
-      <swiper-slide>
-        <ion-img src="../../assets/images/poster.jpg"></ion-img>
-      </swiper-slide>
-      <swiper-slide>
-        <ion-img src="../../assets/images/poster.jpg"></ion-img>
-      </swiper-slide>
-  
-    </swiper-container> -->
-
-
-
-
-    <!-- 
-    <h1>My name is saifur</h1> -->
-
-
-
 
 
   </ion-content>
@@ -347,5 +323,35 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item  style="margin-bottom: 20px;">
+        <ion-avatar style="margin-left: -10px;" aria-hidden="true" slot="start">
+          <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label>Saifur Rahaman
+          <span style="color: #818181;
+          font-size: 12px;
+          margin-bottom: 0px;">saifurrahaman&#64;gmail.com</span>
+
+        </ion-label>
+      </ion-item>
+      <ion-item  button  lines="none">
+        <ion-icon class="side-nav-icon" aria-hidden="true" name="airplane" slot="start"></ion-icon>
+        <ion-label>Airplane Mode</ion-label>
+      </ion-item>
+      <ion-item  button lines="none">
+        <ion-icon class="side-nav-icon" aria-hidden="true" name="wifi" slot="start"></ion-icon>
+        <ion-label>Wi-Fi</ion-label>
+      </ion-item>
+      <ion-item  button lines="none">
+        <ion-icon class="side-nav-icon" aria-hidden="true" name="bluetooth" slot="start"></ion-icon>
+        <ion-label>Bluetooth</ion-label>
+      </ion-item>
+      <ion-item  button lines="none">
+        <ion-icon class="side-nav-icon" aria-hidden="true" name="call" slot="start"></ion-icon>
+        <ion-label>Cellular</ion-label>
+      </ion-item>
+    </ion-list>
+
   </ion-content>
 </ion-menu>

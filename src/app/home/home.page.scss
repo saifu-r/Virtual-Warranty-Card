@@ -25,7 +25,7 @@
 }
 
 
-.card-container{
+.card-container {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -33,11 +33,16 @@
 }
 
 
-.card {
-  // background-image: linear-gradient(to right, #7F00FF, #FF007F);
-  border: 0.5px solid black;
-  border-radius: 15px;
-  padding: 20px;
+// .card {
+//   // background-image: linear-gradient(to right, #7F00FF, #FF007F);
+//   border: 0.5px solid black;
+//   border-radius: 15px;
+//   padding: 20px;
+// }
+
+ion-card{
+  margin: 0;
+  padding: 10px;
 }
 
 .profile-header {
@@ -87,23 +92,30 @@
 
 
 .img-card {
-  position: relative; /* Make the container a relative positioning context */
-  display: inline-block; /* Adjust depending on layout */
+  position: relative;
+  /* Make the container a relative positioning context */
+  display: inline-block;
+  /* Adjust depending on layout */
 }
 
 .Xmark-icon {
   position: absolute;
-  top: 10px;  /* Adjust as needed */
-  right: 10px;  /* Adjust as needed */
-  cursor: pointer; /* Optional: Make it clickable */
-  font-size: 20px; /* Adjust icon size */
+  top: 10px;
+  /* Adjust as needed */
+  right: 10px;
+  /* Adjust as needed */
+  cursor: pointer;
+  /* Optional: Make it clickable */
+  font-size: 20px;
+  /* Adjust icon size */
   // color: #ff0000;  /* Optional: Color for the icon */
 }
 
 img {
   display: block;
   max-width: 100%;
-  height: auto; /* Ensure the image is responsive */
+  height: auto;
+  /* Ensure the image is responsive */
 }
 
 .glass-card {
@@ -118,7 +130,7 @@ img {
 
 //profile-dropdown
 
-.profile-dropdown{
+.profile-dropdown {
   border: 1px solid #8c8c8c;
   padding: 25px 25px;
   position: fixed;
@@ -129,7 +141,7 @@ img {
   background-color: white;
 }
 
-hr{
+hr {
   background: #8c8c8c;
 }
 
@@ -141,4 +153,11 @@ hr{
   .card-container {
     width: 90%;
   }
+}
+
+.side-nav-icon {
+  background: rgb(0 0 0 / 5%);
+  padding: 10px;
+  margin: 0px 15px 1px -10px;
+  border-radius: 50px;
 }
