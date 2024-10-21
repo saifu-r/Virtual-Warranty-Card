@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +12,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,6 +22,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     FontAwesomeModule,
     QRCodeModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   declarations: [HomePage]
 })
 export class HomePageModule {

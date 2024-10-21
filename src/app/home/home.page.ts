@@ -32,13 +32,11 @@ export class HomePage {
 
   }
 
-  constructor(private router: Router
-    , private location: Location
+  constructor(
+    private router: Router,
+    private location: Location
   ) {
     this.qrCode = window.location.href;
-
-
-
   }
 
   cardClick() {
