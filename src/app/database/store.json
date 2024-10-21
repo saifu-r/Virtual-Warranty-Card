@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Pixel 7",
+        "description": "Lorem, ipsum dolor sit",
+        "price": "52000"
+    },
+    {
+        "name": "iPhone 16 Pro Max",
+        "description": "Lorem, ipsum dolor sit",
+        "price": "99000"
+    },
+    {
+        "name": "Samsung s24 Ultra",
+        "description": "Lorem, ipsum dolor sit",
+        "price": "85000"
+    },
+    {
+        "name": "Xiomi 12 Pro",
+        "description": "Lorem, ipsum dolor sit",
+        "price": "32000"
+    }
+]
