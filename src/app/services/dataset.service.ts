@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface Dataset{
-  store?: string
+  products?: boolean
 }
 
 @Injectable({

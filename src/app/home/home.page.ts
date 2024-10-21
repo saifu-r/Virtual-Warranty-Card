@@ -1,9 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { Router } from '@angular/router';
 import { faXmark, faRotateRight, faGear, faArrowRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { Location } from '@angular/common';
+import { DatasetService } from '../services/dataset.service';
     
 
 @Component({
@@ -11,7 +12,7 @@ import { Location } from '@angular/common';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
   @ViewChild(IonModal) modal!: IonModal;
 
@@ -22,26 +23,30 @@ export class HomePage {
 
   qrCode: string = '';
 
+  products: any[]= []
+
   icons = {
     faXmark: faXmark,
     faRotateRight: faRotateRight,
     faGear: faGear,
     faArrowRightFromBracket: faArrowRightFromBracket,
     faCartShopping: faCartShopping,
-
-
   }
 
   constructor(
     private router: Router,
-    private location: Location
+    private location: Location,
+    private datasetService: DatasetService
   ) {
     this.qrCode = window.location.href;
   }
 
+  ngOnInit(){
+      this.loadData()
+  }
+
   cardClick() {
     console.log("hello");
-
   }
 
   hideCard() {
@@ -56,7 +61,6 @@ export class HomePage {
   logout() {
     localStorage.removeItem("userEmail");
     this.router.navigate(['/login-page'])
-
   }
 
   cancel() {
@@ -71,6 +75,13 @@ export class HomePage {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
       this.message = `Hello, ${ev.detail.data}!`;
+    }
+  }
+
+  async loadData(){
+    let productsRes: any = await this.datasetService.get({ products: true });
+    if (productsRes.success == true) {
+      this.products = productsRes.data;
     }
   }
 
