@@ -1,3 +1,4 @@
+// import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export interface Dataset{
@@ -15,7 +16,10 @@ export class DatasetService {
     let getKeys = Object.keys(singleDataset);
     let data = null;
     if (getKeys.length > 0) {
-      let jsonData = await require("./../datasets/" + getKeys[0] + ".json");
+      let jsonData = await require("../database/" + getKeys[0] + ".json");
+      // let jsonData: any
+      // console.log(jsonData);
+      
       data = jsonData;
     }
     return this.responseFormat(data);

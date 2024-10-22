@@ -20,10 +20,10 @@ export class HomePage implements OnInit{
   name: string = "";
   isCardVisible: boolean = true
   isDropdownActive = false;
-
   qrCode: string = '';
-
   products: any[]= []
+
+  clientWidth= 0
 
   icons = {
     faXmark: faXmark,
@@ -42,7 +42,12 @@ export class HomePage implements OnInit{
   }
 
   ngOnInit(){
-      this.loadData()
+      // this.loadData();
+      this.clientWidth = window.innerWidth;
+      console.log(this.clientWidth);
+
+      window.addEventListener('resize', this.onResize);
+      
   }
 
   cardClick() {
@@ -83,6 +88,17 @@ export class HomePage implements OnInit{
     if (productsRes.success == true) {
       this.products = productsRes.data;
     }
+  }
+
+  // for screem size
+  onResize() {
+    this.clientWidth = window.innerWidth;
+    console.log('Updated width:', this.clientWidth);
+  }
+
+  ngOnDestroy(){
+    // Remove resize listener to prevent memory leaks
+    window.removeEventListener('resize', this.onResize);
   }
 
 }

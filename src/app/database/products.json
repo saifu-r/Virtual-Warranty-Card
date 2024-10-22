@@ -2,21 +2,26 @@
     {
         "name": "Pixel 7",
         "description": "Lorem, ipsum dolor sit",
-        "price": "52000"
+        "price": "52000",
+        "img": ""
+        
     },
     {
         "name": "iPhone 16 Pro Max",
         "description": "Lorem, ipsum dolor sit",
-        "price": "99000"
+        "price": "99000",
+        "img": ""
     },
     {
         "name": "Samsung s24 Ultra",
         "description": "Lorem, ipsum dolor sit",
-        "price": "85000"
+        "price": "85000",
+        "img": ""
     },
     {
         "name": "Xiomi 12 Pro",
         "description": "Lorem, ipsum dolor sit",
-        "price": "32000"
+        "price": "32000",
+        "img": ""
     }
 ]
