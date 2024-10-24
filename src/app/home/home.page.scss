@@ -24,12 +24,48 @@
   text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 
 .card-container {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0%);
   width: 40%;
+}
+
+.warranty-card h6 {
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.warranty-card p {
+  margin: 0;
+  font-size: 10px;
+  text-align: center;
+}
+
+.border-right {
+  border-right: 0.5px solid #8c8c8c;
+}
+
+.exp-date {
+  display: flex;
+  justify-content: flex-end;
+}
+
+p {
+  margin: 0;
 }
 
 
@@ -40,9 +76,15 @@
 //   padding: 20px;
 // }
 
-ion-card{
+ion-card {
   margin: 0;
-  padding: 10px;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.warranty-card {
+
+  height: 192px;
 }
 
 .profile-header {
@@ -52,9 +94,13 @@ ion-card{
 }
 
 .custom-qr {
-  height: auto; /* Set your desired height */
-  width: auto;   /* Width adjusts automatically */
+  height: auto;
+  /* Set your desired height */
+  width: auto;
+  /* Width adjusts automatically */
 }
+
+
 
 
 
@@ -95,6 +141,26 @@ ion-card{
   margin: 0 5px;
   display: inline-block;
 }
+
+.cart-container {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
 
 
 .img-card {
@@ -152,6 +218,10 @@ hr {
 }
 
 //carousel
+
+.qr-container canvas {
+  width: 100%;
+}
 
 
 

@@ -3,16 +3,15 @@ import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { Router } from '@angular/router';
 import { faXmark, faRotateRight, faGear, faArrowRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { Location } from '@angular/common';
-import { DatasetService } from '../services/dataset.service';
-    
+import { Location, } from '@angular/common';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit{
+export class HomePage implements OnInit {
 
   @ViewChild(IonModal) modal!: IonModal;
 
@@ -21,9 +20,8 @@ export class HomePage implements OnInit{
   isCardVisible: boolean = true
   isDropdownActive = false;
   qrCode: string = '';
-  products: any[]= []
 
-  clientWidth= 0
+  clientWidth = 0
 
   icons = {
     faXmark: faXmark,
@@ -33,21 +31,53 @@ export class HomePage implements OnInit{
     faCartShopping: faCartShopping,
   }
 
+  products = [
+    {
+      "name": "Pixel 7",
+      "description": "Lorem, ipsum dolor sit",
+      "price": "52000",
+      "img": ""
+
+    },
+    {
+      "name": "iPhone 16 Pro Max",
+      "description": "Lorem, ipsum dolor sit",
+      "price": "99000",
+      "img": ""
+    },
+    {
+      "name": "Samsung s24 Ultra",
+      "description": "Lorem, ipsum dolor sit",
+      "price": "85000",
+      "img": ""
+    },
+    {
+      "name": "Xiomi 12 Pro",
+      "description": "Lorem, ipsum dolor sit",
+      "price": "32000",
+      "img": ""
+    }
+  ]
+
+
+  cart: any[]= []
+
+  cartTotal: number= 0
+
   constructor(
     private router: Router,
-    private location: Location,
-    private datasetService: DatasetService
+    private location: Location
   ) {
     this.qrCode = window.location.href;
   }
 
-  ngOnInit(){
-      // this.loadData();
-      this.clientWidth = window.innerWidth;
-      console.log(this.clientWidth);
+  ngOnInit() {
+    // this.loadData();
+    this.clientWidth = window.innerWidth;
+    console.log(this.clientWidth);
 
-      window.addEventListener('resize', this.onResize);
-      
+    window.addEventListener('resize', this.onResize);
+
   }
 
   cardClick() {
@@ -83,20 +113,55 @@ export class HomePage implements OnInit{
     }
   }
 
-  async loadData(){
-    let productsRes: any = await this.datasetService.get({ products: true });
-    if (productsRes.success == true) {
-      this.products = productsRes.data;
+  addToCart(product: any) {
+    const productInCart = this.cart.find(item => item.name === product.name);
+
+    const productPrice = Number(product.price);
+
+    if (productInCart) {
+      productInCart.quantity++;
+      productInCart.totalPrice = productInCart.quantity * productPrice;
+    } else {
+      this.cart.push({
+        name: product.name,
+        price: productPrice,
+        quantity: 1,
+        totalPrice: productPrice
+      });
     }
+
+    this.cartTotal= this.getCartTotal();
+     
+
   }
 
-  // for screem size
+  getCartTotal(): number {
+    let totalSum = 0; 
+
+    for (let i = 0; i < this.cart.length; i++) {
+        const item = this.cart[i]; 
+        totalSum += item.totalPrice; 
+    }
+    return totalSum;
+  }
+
+  removeFromCart(product: any){
+    const index = this.cart.indexOf(product);  // Find the index of the product
+    if (index > -1) {
+      this.cart.splice(index, 1);  // Remove the product from the cart array
+    }
+
+    this.cartTotal= this.getCartTotal();
+  }
+
+
+
   onResize() {
     this.clientWidth = window.innerWidth;
     console.log('Updated width:', this.clientWidth);
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     // Remove resize listener to prevent memory leaks
     window.removeEventListener('resize', this.onResize);
   }
