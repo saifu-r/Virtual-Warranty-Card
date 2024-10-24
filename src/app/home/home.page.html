@@ -48,6 +48,18 @@
                 <ion-img src="../../assets/icon/favicon.png" style="height: 30px;"></ion-img>
               </div>
 
+              <ion-row id="warrantyCard">
+                <span *ngIf="isQrCodeSizeUpdated == false"> {{updateQrCodeWidth()}}</span>
+                <ion-col size="4" *ngIf="isQrCodeSizeUpdated">
+                  <qrcode [qrdata]="qrCode" [errorCorrectionLevel]="'M'" class="custom-qr" [width]="qrCodeWidth" [margin]="1">
+                  </qrcode>
+                </ion-col>
+                <ion-col size="8">
+                  <p>1201-1299-12393</p>
+                  <p>Excel E06</p>
+                </ion-col>
+              </ion-row>
+
               <div class="exp-date ion-margin-top">
                 <h5>Exp</h5>
                 <h3>12/25</h3>
@@ -55,13 +67,16 @@
 
             </div>
           </div>
+
           <div class="card-back">
-            <p>Back Side</p>
+            <p>Follow Below steps to request your warranty claim.</p>
+            <p>1. Go to my My Account. <br> 2. Tap on Request Claim. <br> 3. Enter Information and
+              Send Claim Request.</p>
           </div>
         </div>
       </div>
 
-      <ion-card>
+      <ion-card *ngIf="false">
         <ion-row id="warrantyCard">
           <span *ngIf="isQrCodeSizeUpdated == false"> {{updateQrCodeWidth()}}</span>
           <ion-col size="6" *ngIf="isQrCodeSizeUpdated">
@@ -70,7 +85,7 @@
         </ion-row>
       </ion-card>
 
-      <ion-card class="warranty-card ion-margin-top">
+      <ion-card class="warranty-card ion-margin-top" *ngIf="false">
 
         <!-- <ion-row>
             <ion-col size="2">
@@ -111,15 +126,6 @@
           </ion-col>
         </ion-row>
       </ion-card>
-
-      <!-- card info -->
-      <div class="ion-margin-top">
-        <p>Follow Below steps to request your warranty claim.</p>
-        <p>1. Go to my My Account. <br> 2. Tap on Request Claim. <br> 3. Enter Information and
-          Send Claim Request.</p>
-      </div>
-
-      <ion-button expand="block" shape="round" color="light" class="ion-margin-top">Confirm</ion-button>
 
       <!-- banner -->
       <div class="img-card ion-margin-top" *ngIf="isCardVisible">
@@ -207,7 +213,8 @@
                 <P>৳{{item.price}} x {{item.quantity}} = ৳{{item.totalPrice}}</P>
               </ion-label>
               <ion-buttons>
-                <ion-button style="background: #ff00000d; border-radius: 100%;" shape="round" color="danger" (click)="removeFromCart(item)">
+                <ion-button style="background: #ff00000d; border-radius: 100%;" shape="round" color="danger"
+                  (click)="removeFromCart(item)">
                   <ion-icon slot="icon-only" name="trash-bin-sharp"></ion-icon>
                 </ion-button>
               </ion-buttons>

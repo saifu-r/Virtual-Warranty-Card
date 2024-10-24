@@ -164,7 +164,7 @@ export class HomePage implements OnInit {
   updateQrCodeWidth() {
     let clientWidth: any = document.getElementById('warrantyCard')?.offsetWidth;
     if (clientWidth) {
-      let size = clientWidth / 2;
+      let size = clientWidth / 4;
       this.qrCodeWidth = size;
       this.isQrCodeSizeUpdated = true;
       this.cdr.detectChanges();
