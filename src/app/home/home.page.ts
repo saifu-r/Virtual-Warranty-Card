@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Location, } from '@angular/common';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+
 })
 export class HomePage implements OnInit {
 
@@ -32,6 +33,7 @@ export class HomePage implements OnInit {
     faArrowRightFromBracket: faArrowRightFromBracket,
     faCartShopping: faCartShopping,
   }
+
 
   products = [
     {
@@ -62,24 +64,21 @@ export class HomePage implements OnInit {
   ]
 
 
-  cart: any[]= []
+  cart: any[] = []
+  cartTotal: number = 0
 
-  cartTotal: number= 0
+  qrCodeWidth = 0;
+  isQrCodeSizeUpdated = false;
 
   constructor(
     private router: Router,
-    private location: Location
+    private location: Location,
+    private cdr: ChangeDetectorRef
   ) {
     this.qrCode = window.location.href;
   }
 
   ngOnInit() {
-    // this.loadData();
-    this.clientWidth = window.innerWidth;
-    console.log(this.clientWidth);
-
-    window.addEventListener('resize', this.onResize);
-
   }
 
   cardClick() {
@@ -117,9 +116,7 @@ export class HomePage implements OnInit {
 
   addToCart(product: any) {
     const productInCart = this.cart.find(item => item.name === product.name);
-
     const productPrice = Number(product.price);
-
     if (productInCart) {
       productInCart.quantity++;
       productInCart.totalPrice = productInCart.quantity * productPrice;
@@ -131,57 +128,46 @@ export class HomePage implements OnInit {
         totalPrice: productPrice
       });
     }
-
-    this.cartTotal= this.getCartTotal();
-     
-
+    this.cartTotal = this.getCartTotal();
   }
 
   getCartTotal(): number {
-    let totalSum = 0; 
-
+    let totalSum = 0;
     for (let i = 0; i < this.cart.length; i++) {
-        const item = this.cart[i]; 
-        totalSum += item.totalPrice; 
+      const item = this.cart[i];
+      totalSum += item.totalPrice;
     }
     return totalSum;
   }
 
-  removeFromCart(product: any){
+  removeFromCart(product: any) {
     const index = this.cart.indexOf(product);  // Find the index of the product
     if (index > -1) {
       this.cart.splice(index, 1);  // Remove the product from the cart array
     }
 
-    this.cartTotal= this.getCartTotal();
+    this.cartTotal = this.getCartTotal();
   }
 
-
-
-  onResize() {
-    this.clientWidth = window.innerWidth;
-    console.log('Updated width:', this.clientWidth);
-  }
-
-  ngOnDestroy() {
-    // Remove resize listener to prevent memory leaks
-    window.removeEventListener('resize', this.onResize);
-  }
-
-  confirmOrder(){
+  confirmOrder() {
     console.log(this.cart);
-    console.log("The Total is "+ this.cartTotal);
-    
-    
-    this.cart= []
-    this.cartTotal= 0
+    console.log("The Total is " + this.cartTotal);
+    this.cart = []
+    this.cartTotal = 0
   }
-
-  //toast
-
 
 
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
+  }
+
+  updateQrCodeWidth() {
+    let clientWidth: any = document.getElementById('warrantyCard')?.offsetWidth;
+    if (clientWidth) {
+      let size = clientWidth / 2;
+      this.qrCodeWidth = size;
+      this.isQrCodeSizeUpdated = true;
+      this.cdr.detectChanges();
+    }
   }
 }

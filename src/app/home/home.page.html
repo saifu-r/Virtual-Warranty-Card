@@ -1,10 +1,13 @@
 <div class="ion-page" id="main-content">
+  <!-- nav header -->
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>Warranty Card</ion-title>
+
+      <!-- css badge -->
       <ion-buttons slot="end" class="cart-container">
         <ion-button shape="round" fill="clear" id="open-modal">
           <ion-icon slot="icon-only" name="cart-sharp"></ion-icon>
@@ -16,52 +19,58 @@
 
         </ion-button>
       </ion-buttons>
+
+      <!-- ionic badge -->
+      <!-- <ion-buttons slot="end" class="cart-container">
+        <ion-button shape="round" fill="clear" id="open-modal">
+          <ion-icon slot="icon-only" name="cart-sharp"></ion-icon>
+
+          Notification Badge
+          <ion-badge slot="end" *ngIf="cart.length > 0" style="border-radius: 100px;" class="ion-padding">{{ cart.length }}</ion-badge>
+
+        </ion-button>
+      </ion-buttons> -->
     </ion-toolbar>
   </ion-header>
 
-
+  <!-- card content -->
   <ion-content class="ion-padding">
-    <div class="profile-dropdown" *ngIf="isDropdownActive">
-      <div class="profile-header">
-        <ion-icon name="person-circle-outline" style="color: black;"></ion-icon>
-        <div class="profile-info">
-          <h2>Saifur Rahman</h2>
-          <p>saifur&#64;gmail.com</p>
-        </div>
-      </div>
-      <hr>
-      <p><fa-icon [icon]="icons.faRotateRight"></fa-icon> Refresh</p>
-      <p><fa-icon [icon]="icons.faGear"></fa-icon> Setting</p>
-      <p (click)="logout()"><fa-icon [icon]="icons.faArrowRightFromBracket"></fa-icon> Logout</p>
-    </div>
-
     <div class="ion-padding card-container">
-      <div class="card" style="background-color: rgb(235, 235, 235);" *ngIf="false">
-        <div class="profile-header">
-          <ion-icon name="person-circle-outline"></ion-icon>
-          <div class="profile-info">
-            <h2>Tarik Bin Mashud</h2>
-            <p>01752123140</p>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div>
+
+              <div class="ion-justify-content-between flex ion-align-items-center ion-margin-top"
+                style="display: flex;">
+                <h3> Virtual Warranty Card</h3>
+                <ion-img src="../../assets/icon/favicon.png" style="height: 30px;"></ion-img>
+              </div>
+
+              <div class="exp-date ion-margin-top">
+                <h5>Exp</h5>
+                <h3>12/25</h3>
+              </div>
+
+            </div>
           </div>
-        </div>
-
-        <div class="status-section">
-          <h1>Platinum Star</h1>
-          <p>In GP Network Since:</p>
-          <p>Oct, 2017</p>
-        </div>
-
-        <div class="rewards-section">
-          <ion-button expand="block" shape="round" color="light">View Rewards</ion-button>
-          <div class="network-info">
-            <span class="badge">Prepaid</span>
-            <span class="badge">4G</span>
+          <div class="card-back">
+            <p>Back Side</p>
           </div>
         </div>
       </div>
 
+      <ion-card>
+        <ion-row id="warrantyCard">
+          <span *ngIf="isQrCodeSizeUpdated == false"> {{updateQrCodeWidth()}}</span>
+          <ion-col size="6" *ngIf="isQrCodeSizeUpdated">
+            <qrcode [qrdata]="qrCode" [errorCorrectionLevel]="'M'" class="custom-qr" [width]="qrCodeWidth"></qrcode>
+          </ion-col>
+        </ion-row>
+      </ion-card>
 
-      <ion-card class="warranty-card">
+      <ion-card class="warranty-card ion-margin-top">
 
         <!-- <ion-row>
             <ion-col size="2">
@@ -74,7 +83,7 @@
           </ion-row> -->
 
 
-        <div class="ion-justify-content-between flex ion-align-items-center ion-margin-top" style="display: flex;">
+        <div class="ion-justify-content-between flex ion-align-items-center" style="display: flex;">
           <h3> Virtual Warranty Card</h3>
           <ion-img src="../../assets/icon/favicon.png" style="height: 30px;"></ion-img>
         </div>
@@ -103,21 +112,22 @@
         </ion-row>
       </ion-card>
 
+      <!-- card info -->
       <div class="ion-margin-top">
         <p>Follow Below steps to request your warranty claim.</p>
         <p>1. Go to my My Account. <br> 2. Tap on Request Claim. <br> 3. Enter Information and
           Send Claim Request.</p>
       </div>
 
-
-
       <ion-button expand="block" shape="round" color="light" class="ion-margin-top">Confirm</ion-button>
 
+      <!-- banner -->
       <div class="img-card ion-margin-top" *ngIf="isCardVisible">
         <fa-icon [icon]="icons.faXmark" class="Xmark-icon" (click)="hideCard()"></fa-icon>
         <ion-img src="../../assets/images/poster.jpg"></ion-img>
       </div>
 
+      <!-- gallery carousel -->
       <swiper-container class="mySwiper ion-margin-top" pagination="true" [loop]="true" autoplay-delay="2500"
         autoplay-disable-on-interaction="false">
         <swiper-slide><ion-img src="../../assets/images/poster2.jpg"></ion-img></swiper-slide>
@@ -125,6 +135,8 @@
         <swiper-slide><ion-img src="../../assets/images/poster4.jpg"></ion-img></swiper-slide>
       </swiper-container>
 
+
+      <!-- toast message -->
       <ion-row>
         <ion-col size="6" *ngFor="let product of products; let i=index" (click)="addToCart(product)"
           style="cursor: pointer;" (click)="setOpen(true)">
@@ -139,20 +151,23 @@
       </ion-row>
       <ion-toast [isOpen]="isToastOpen" message="Product added to your shopping cart!" [duration]="2000"
         (didDismiss)="setOpen(false)"></ion-toast>
+
+
     </div>
 
+    <!-- modal -->
     <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
       <ng-template>
         <ion-header>
           <ion-toolbar>
-            <ion-buttons slot="start">
-              <ion-button (click)="cancel()" shape="round"><ion-icon name="close-sharp"
-                  style="color: #2e2e2e;"></ion-icon></ion-button>
+            <ion-buttons slot="end">
+              <ion-button (click)="cancel()" shape="round" slot="icon-only"><ion-icon slot="icon-only"
+                  name="close-sharp" style="color: #2e2e2e;"></ion-icon></ion-button>
             </ion-buttons>
             <ion-title>YOUR CART</ion-title>
-            <ion-buttons slot="end">
+            <!-- <ion-buttons slot="end">
               <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
-            </ion-buttons>
+            </ion-buttons> -->
           </ion-toolbar>
         </ion-header>
 
@@ -160,23 +175,47 @@
 
           <h4 *ngIf="cart.length==0" style="text-align: center;">Your shopping cart is empty!</h4>
 
-          <ion-item *ngFor="let item of cart">
-            <ion-row>
-              <ion-col size="2">
-                <ion-img src="../../assets/images/product01.jpg"></ion-img>
-              </ion-col>
-              <ion-col size="9" style="display: flex;
-              flex-direction: column;
-              justify-content: center;">
-                <h3 style="margin: 0;">{{item.name}}</h3>
-                <p>৳{{item.price}} x {{item.quantity}} = ৳{{item.totalPrice}}</p>
-              </ion-col>
-              <ion-col size="1" style="display: flex; align-items: center;">
-                <ion-icon name="trash-bin-sharp" style="color: #2e2e2e; font-size: 25px; cursor: pointer; "
-                  (click)="removeFromCart(item)"></ion-icon>
-              </ion-col>
-            </ion-row>
-          </ion-item>
+          <div *ngIf="false">
+            <ion-item *ngFor="let item of cart">
+              <ion-row>
+                <ion-col size="2">
+                  <ion-img src="../../assets/images/product01.jpg"></ion-img>
+                </ion-col>
+                <ion-col size="9" style="display: flex;
+                flex-direction: column;
+                justify-content: center;">
+                  <h3 style="margin: 0;">{{item.name}}</h3>
+                  <p>৳{{item.price}} x {{item.quantity}} = ৳{{item.totalPrice}}</p>
+                </ion-col>
+                <ion-col size="1" style="display: flex; align-items: center;">
+                  <ion-buttons slot="end">
+                    <ion-icon name="trash-bin-sharp" (click)="removeFromCart(item)"></ion-icon>
+                  </ion-buttons>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+
+          </div>
+          <ion-items>
+            <ion-item *ngFor="let item of cart">
+              <ion-avatar slot="start">
+                <img src="../../assets/images/product01.jpg" />
+              </ion-avatar>
+              <ion-label>{{
+                item.name
+                }}
+                <P>৳{{item.price}} x {{item.quantity}} = ৳{{item.totalPrice}}</P>
+              </ion-label>
+              <ion-buttons>
+                <ion-button style="background: #ff00000d; border-radius: 100%;" shape="round" color="danger" (click)="removeFromCart(item)">
+                  <ion-icon slot="icon-only" name="trash-bin-sharp"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-item>
+          </ion-items>
+
+
+
         </ion-content>
 
         <ion-item lines="none" style="text-align: center; justify-content: center;">
@@ -184,7 +223,8 @@
         </ion-item>
 
         <!-- Full-width Checkout Button -->
-        <ion-button expand="block" fill="solid" color="primary" style="margin: 0; height: 58px;" (click)="confirmOrder()">
+        <ion-button expand="block" fill="solid" color="primary" style="margin: 0; height: 58px;"
+          (click)="confirmOrder()">
           Checkout
         </ion-button>
       </ng-template>
@@ -197,7 +237,7 @@
 
 
 
-
+<!-- nav menu -->
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
