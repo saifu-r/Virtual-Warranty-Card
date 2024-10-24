@@ -168,6 +168,15 @@ export class HomePage implements OnInit {
     window.removeEventListener('resize', this.onResize);
   }
 
+  confirmOrder(){
+    console.log(this.cart);
+    console.log("The Total is "+ this.cartTotal);
+    
+    
+    this.cart= []
+    this.cartTotal= 0
+  }
+
   //toast
 
 
