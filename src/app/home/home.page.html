@@ -127,7 +127,7 @@
 
       <ion-row>
         <ion-col size="6" *ngFor="let product of products; let i=index" (click)="addToCart(product)"
-          style="cursor: pointer;">
+          style="cursor: pointer;" (click)="setOpen(true)">
           <ion-card>
             <ion-img src="../../assets/images/product01.jpg"></ion-img>
             <h5>{{product.name}}</h5>
@@ -137,6 +137,12 @@
         </ion-col>
 
       </ion-row>
+      <ion-toast
+    [isOpen]="isToastOpen"
+    message="Product added to your shopping cart!"
+    [duration]="2000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
     </div>
 
     <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
@@ -191,6 +197,10 @@
 
   </ion-content>
 </div>
+
+
+
+
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>

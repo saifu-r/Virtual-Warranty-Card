@@ -23,6 +23,8 @@ export class HomePage implements OnInit {
 
   clientWidth = 0
 
+  isToastOpen = false;
+
   icons = {
     faXmark: faXmark,
     faRotateRight: faRotateRight,
@@ -166,4 +168,11 @@ export class HomePage implements OnInit {
     window.removeEventListener('resize', this.onResize);
   }
 
+  //toast
+
+
+
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
+  }
 }
