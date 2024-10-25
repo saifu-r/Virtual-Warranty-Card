@@ -20,16 +20,7 @@
         </ion-button>
       </ion-buttons>
 
-      <!-- ionic badge -->
-      <!-- <ion-buttons slot="end" class="cart-container">
-        <ion-button shape="round" fill="clear" id="open-modal">
-          <ion-icon slot="icon-only" name="cart-sharp"></ion-icon>
 
-          Notification Badge
-          <ion-badge slot="end" *ngIf="cart.length > 0" style="border-radius: 100px;" class="ion-padding">{{ cart.length }}</ion-badge>
-
-        </ion-button>
-      </ion-buttons> -->
     </ion-toolbar>
   </ion-header>
 
@@ -76,7 +67,11 @@
         </div>
       </div>
     </div>
+
+
     <div class="ion-padding card-container">
+
+      <!-- warranty card -->
       <ion-card style="margin-top: -45px !important;
       padding-top: 50px;
       margin-left: -25px;
@@ -123,8 +118,6 @@
         <fa-icon [icon]="icons.faXmark" class="Xmark-icon" (click)="hideCard()"></fa-icon>
         <ion-img src="../../assets/images/poster.jpg"></ion-img>
       </div>
-
-
 
       <!-- gallery carousel -->
       <swiper-container class="mySwiper ion-margin-top" pagination="true" [loop]="true" autoplay-delay="2500"

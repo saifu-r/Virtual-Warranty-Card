@@ -154,7 +154,7 @@ ion-card {
   position: absolute;
   top: -8px;
   right: -8px;
-  background-color: red;
+  background-color: #eb0808;
   color: white;
   border-radius: 50%;
   width: 20px;
@@ -162,9 +162,11 @@ ion-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: -1px 2px 3px #00000052;
+  border: 0.5px solid #00000014;
 }
-
 
 
 .img-card {
@@ -276,7 +278,7 @@ hr {
   border-radius: 10px;
   transform: rotateY(0deg);
 
-  background-image: url('../../assets/wave-textures/texture.png');
+  // background-image: url('../../assets/wave-textures/texture.png');
   /* Path to your image */
   background-size: cover;
   /* Ensures the image covers the entire card */
@@ -302,21 +304,10 @@ ion-avatar {
 //cart list
 .store-products {
   cursor: pointer;
-  background: #eefdf8;
 
 }
 
-.store-products h5 {
-  color: var(--ion-color-secondary);
-}
 
-.store-products p {
-  color: var(--ion-color-primary);
-}
-
-.store-products img {
-  border-radius: 15px !important
-}
 
 
 .margin-bottom {
