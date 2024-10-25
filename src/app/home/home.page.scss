@@ -24,6 +24,8 @@
   text-decoration: none;
 }
 
+//locals
+
 h1,
 h2,
 h3,
@@ -41,6 +43,12 @@ p {
   left: 50%;
   transform: translate(-50%, 0%);
   width: 40%;
+}
+
+.card-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .warranty-card h6 {
@@ -62,6 +70,10 @@ p {
 .exp-date {
   display: flex;
   justify-content: flex-end;
+
+  bottom: 10px;
+  position: absolute;
+  right: 10px;
 }
 
 p {
@@ -70,8 +82,8 @@ p {
 
 ion-card {
   margin: 0;
-  padding: 15px;
-  border-radius: 20px;
+  padding: 10px;
+  border-radius: 15px;
 }
 
 .warranty-card {
@@ -213,11 +225,7 @@ hr {
 
 
 
-@media (max-width: 992px) {
-  .card-container {
-    width: 90%;
-  }
-}
+
 
 .side-nav-icon {
   background: rgb(0 0 0 / 5%);
@@ -231,7 +239,7 @@ hr {
 
 /* From Uiverse.io by vamsidevendrakumar */ 
 .card {
-  height: 200px;
+  height: 400px;
   perspective: 1000px;
   
 }
@@ -266,13 +274,17 @@ hr {
   border: 2px solid #1ee1af;
   border-radius: 10px;
   transform: rotateY(0deg);
+
+  background-image: url('../../assets/wave-textures/texture.png'); /* Path to your image */
+  background-size: cover; /* Ensures the image covers the entire card */
+  background-position: center; /* Centers the image */
 }
 
 .card-back {
-  background-color: #001736;
-  color: #1ee1af;
+  background-color: var(--ion-color-secondary);
+  color: var(--ion-color-primary);
 
-  border: 1px solid #1ee1af;
+  border: 1px solid var(--ion-color-secondary);
   border-radius: 10px;
 
   font-size: 24px;
@@ -281,4 +293,38 @@ hr {
 
 ion-avatar {
   --border-radius: 4px;
+}
+
+//cart list
+.store-products{
+  cursor: pointer;
+  background: #eefdf8;
+
+}
+
+.store-products h5{
+  color: var(--ion-color-secondary);
+}
+.store-products p{
+  color: var(--ion-color-primary);
+}
+
+.store-products img{
+  border-radius: 15px !important
+}
+
+
+.margin-bottom{
+  margin-bottom: 10px;
+}
+
+// for mobile screens
+@media (max-width: 992px) {
+  .card-container {
+    width: 90%;
+  }
+
+  .card{
+    height: 200px !important;
+  }
 }
