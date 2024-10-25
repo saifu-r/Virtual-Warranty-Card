@@ -45,7 +45,7 @@ p {
   width: 40%;
 }
 
-.card-info{
+.card-info {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -183,12 +183,12 @@ ion-card {
 
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  /* Ensure the image is responsive */
-}
+// img {
+//   display: block;
+//   max-width: 100%;
+//   height: auto;
+//   /* Ensure the image is responsive */
+// }
 
 .glass-card {
   background: rgba(255, 255, 255, 0.031372549);
@@ -237,16 +237,17 @@ hr {
 
 //flipping card
 
-/* From Uiverse.io by vamsidevendrakumar */ 
+/* From Uiverse.io by vamsidevendrakumar */
 .card {
   height: 400px;
   perspective: 1000px;
-  
+
 }
 
-.card p{
+.card p {
   font-size: 12px;
 }
+
 .card-inner {
   width: 100%;
   height: 100%;
@@ -275,9 +276,12 @@ hr {
   border-radius: 10px;
   transform: rotateY(0deg);
 
-  background-image: url('../../assets/wave-textures/texture.png'); /* Path to your image */
-  background-size: cover; /* Ensures the image covers the entire card */
-  background-position: center; /* Centers the image */
+  background-image: url('../../assets/wave-textures/texture.png');
+  /* Path to your image */
+  background-size: cover;
+  /* Ensures the image covers the entire card */
+  background-position: center;
+  /* Centers the image */
 }
 
 .card-back {
@@ -296,25 +300,26 @@ ion-avatar {
 }
 
 //cart list
-.store-products{
+.store-products {
   cursor: pointer;
   background: #eefdf8;
 
 }
 
-.store-products h5{
+.store-products h5 {
   color: var(--ion-color-secondary);
 }
-.store-products p{
+
+.store-products p {
   color: var(--ion-color-primary);
 }
 
-.store-products img{
+.store-products img {
   border-radius: 15px !important
 }
 
 
-.margin-bottom{
+.margin-bottom {
   margin-bottom: 10px;
 }
 
@@ -324,7 +329,30 @@ ion-avatar {
     width: 90%;
   }
 
-  .card{
+  .card {
     height: 200px !important;
   }
+}
+
+
+.card-status {
+  background: #1a73e8;
+  color: #fff;
+  width: 80px;
+  padding: 2px;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.card-bg-image {
+  object-fit: cover;
+  object-position: 100% 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: auto;
 }
