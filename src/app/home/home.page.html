@@ -217,11 +217,15 @@
 
         <!-- Full-width Checkout Button -->
         <ion-button expand="block" fill="solid" color="primary" style="margin: 0; height: 58px; background: #ff5722;"
-          (click)="confirmOrder()">
-          Checkout
+          id="present-alert">
+          Proceed
         </ion-button>
+        <ion-alert trigger="present-alert" header="Customer Information" [buttons]="alertButtons"
+          [inputs]="alertInputs"></ion-alert>
       </ng-template>
     </ion-modal>
+
+
 
   </ion-content>
 </div>

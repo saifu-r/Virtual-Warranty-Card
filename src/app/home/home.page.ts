@@ -170,4 +170,27 @@ export class HomePage implements OnInit {
       this.cdr.detectChanges();
     }
   }
+
+  // alert panel
+
+  public alertButtons = ['OK'];
+  public alertInputs = [
+    {
+      placeholder: 'Name',
+    },
+    {
+      placeholder: 'Address',
+    },
+    {
+      type: 'number',
+      placeholder: 'Phone Number',
+      min: 1,
+      max: 100,
+    },
+    {
+      type: 'email',
+      placeholder: 'Email',
+    }
+
+  ];
 }
