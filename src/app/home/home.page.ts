@@ -25,6 +25,9 @@ export class HomePage implements OnInit {
   clientWidth = 0
 
   isToastOpen = false;
+  isCartActive= true;
+  isCustomerInfoActive= false;
+
 
   icons = {
     faXmark: faXmark,
@@ -173,24 +176,7 @@ export class HomePage implements OnInit {
 
   // alert panel
 
-  public alertButtons = ['OK'];
-  public alertInputs = [
-    {
-      placeholder: 'Name',
-    },
-    {
-      placeholder: 'Address',
-    },
-    {
-      type: 'number',
-      placeholder: 'Phone Number',
-      min: 1,
-      max: 100,
-    },
-    {
-      type: 'email',
-      placeholder: 'Email',
-    }
-
-  ];
+  showNav(){
+    document.getElementById('navBar')?.click()
+  }
 }
