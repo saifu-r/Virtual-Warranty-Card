@@ -25,8 +25,7 @@ export class HomePage implements OnInit {
   clientWidth = 0
 
   isToastOpen = false;
-  isCartActive= true;
-  isCustomerInfoActive= false;
+  showCart= true
 
 
   icons = {
@@ -157,6 +156,13 @@ export class HomePage implements OnInit {
     console.log("The Total is " + this.cartTotal);
     this.cart = []
     this.cartTotal = 0
+  }
+
+  openCustomerReg(){
+    console.log("before pressing"+ this.showCart);
+    
+    this.showCart= false
+    console.log("after pressing"+ this.showCart);
   }
 
 
