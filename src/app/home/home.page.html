@@ -7,9 +7,7 @@
           style="width: 40px; height: 40px; margin-left: 20px;">
           <img alt="company-logo" src="../../assets/images/rimloo_logo.png" style="cursor: pointer;" />
         </ion-avatar>
-
         <ion-menu-button style="display: none;" id="navBar"></ion-menu-button>
-
       </ion-buttons>
       <ion-title>Excel Electronics</ion-title>
 
@@ -17,16 +15,13 @@
       <ion-buttons slot="end" class="cart-container">
         <ion-button shape="round" fill="clear" id="open-modal">
           <ion-icon slot="icon-only" name="cart-sharp"></ion-icon>
-
+          
           <!-- Notification Badge -->
           <div class="cart-badge" *ngIf="cart.length > 0">
             {{ cart.length }}
           </div>
-
         </ion-button>
       </ion-buttons>
-
-
     </ion-toolbar>
   </ion-header>
 
@@ -302,7 +297,7 @@
         <ion-label>Reload</ion-label>
       </ion-item>
 
-      <ion-item button lines="none">
+      <ion-item button lines="none" (click)="navigateHistory()">
         <ion-icon class="side-nav-icon" aria-hidden="true" name="home" slot="start" color="primary"></ion-icon>
         <ion-label>Order History</ion-label>
       </ion-item>

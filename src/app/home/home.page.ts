@@ -231,5 +231,13 @@ export class HomePage implements OnInit {
 
 
 
+  navigateHistory(){
+    this.router.navigate(['/history']);
+    console.log("hello");
+    
+  }
+
+
+
   
 }
