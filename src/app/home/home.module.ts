@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
@@ -20,7 +20,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     IonicModule,
     HomePageRoutingModule,
     FontAwesomeModule,
-    QRCodeModule
+    QRCodeModule,
+    ReactiveFormsModule 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   declarations: [HomePage]

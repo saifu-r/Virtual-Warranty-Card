@@ -4,6 +4,7 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { Router } from '@angular/router';
 import { faXmark, faRotateRight, faGear, faArrowRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { Location, } from '@angular/common';
+import { FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -75,7 +76,8 @@ export class HomePage implements OnInit {
   constructor(
     private router: Router,
     private location: Location,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private formBuilder: FormBuilder
   ) {
     this.qrCode = window.location.href;
   }
@@ -185,6 +187,41 @@ export class HomePage implements OnInit {
   showNav(){
     document.getElementById('navBar')?.click()
   }
+
+  public alertButtons = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'OK',
+      role: 'confirm',
+      handler: () => {
+        console.log('Alert confirmed');
+      },
+    },
+  ];
+
+  setResult(ev: any) {
+    console.log(`Dismissed with role: ${ev.detail.role}`);
+  }
+
+  customerForm= this.formBuilder.group({
+    firstName: ['',Validators.required],
+    lastName: ['',Validators.required],
+    address: ['',Validators.required],
+    mobileNumber: ['',Validators.required],
+    email: ['',Validators.required],
+    city: ['',Validators.required],
+    comment: ['',Validators.required],
+
+
+  })
+
+
 
   
 }

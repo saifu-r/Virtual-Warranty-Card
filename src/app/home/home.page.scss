@@ -351,12 +351,16 @@ hr {
 }
 
 .input-item {
-  --highlight-color-focused: #000000;
+  // --highlight-color-focused: #000000;
   --background: #ffffff;
   --border-color: #c4c4c4;
   --padding-start: 10px;
   --padding-end: 10px;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
-  margin-bottom: 16px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.padding-right{
+  padding: 0px 15px 0px 0px;
 }

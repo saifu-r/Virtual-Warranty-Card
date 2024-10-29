@@ -33,7 +33,6 @@
   <!-- card content -->
   <ion-content>
 
-
     <!-- warranty card -->
     <div class="card" *ngIf="false">
       <div class="card-inner">
@@ -74,9 +73,7 @@
       </div>
     </div>
 
-
     <div class="ion-padding card-container">
-
       <!-- warranty card -->
       <ion-card style="margin-top: -45px !important;
       padding-top: 50px;
@@ -135,8 +132,8 @@
 
       <!-- cart list -->
       <ion-row class="ion-margin-top">
-        <ion-col size="6" class="ion-no-margin" *ngFor="let product of products; let i=index" (click)="addToCart(product)"
-          (click)="setOpen(true)">
+        <ion-col size="6" class="ion-no-margin" *ngFor="let product of products; let i=index"
+          (click)="addToCart(product)" (click)="setOpen(true)">
           <ion-card class="store-products">
             <img src="../../assets/images/product01.jpg" class="margin-bottom">
             <h5 style="font-size: 15px;">{{product.name}}</h5>
@@ -155,7 +152,6 @@
 
     <!-- modal -->
     <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
-
       <!-- modal details -->
       <div class="cart">
         <ng-template>
@@ -201,70 +197,68 @@
             <!-- customer data -->
             <div class="customer-info" [style]="showCart == true ? 'display: none' : 'display: block'">
 
-              <ion-row>
-                <ion-col size="6" class="ion-no-padding">
-                  <ion-label position="floating">First Name*</ion-label>
-                  <ion-item class="input-item">
-                    <ion-input type="text"></ion-input>
-                  </ion-item>
-                </ion-col>
-                <ion-col size="6" class="ion-no-padding">
-                  <ion-label position="floating">Last Name*</ion-label>
-                  <ion-item class="input-item">
-                    <ion-input type="text"></ion-input>
-                  </ion-item>
-                </ion-col>
-              </ion-row>
+              <form [formGroup]="customerForm">
+                <ion-row>
+                  <ion-col size="6" class="padding-right">
+                    <ion-label position="floating">First Name*</ion-label>
+                    <ion-item class="input-item">
+                      <ion-input type="text" formControlName="firstName"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-padding">
+                    <ion-label position="floating">Last Name*</ion-label>
+                    <ion-item class="input-item">
+                      <ion-input type="text" formControlName="lastName"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
 
-              <ion-label position="floating">Address*</ion-label>
-              <ion-item class="input-item">
-                <ion-input type="text"></ion-input>
-              </ion-item>
+                <ion-label position="floating">Address*</ion-label>
+                <ion-item class="input-item">
+                  <ion-input type="text" formControlName="address"></ion-input>
+                </ion-item>
 
-              <ion-label position="floating">Mobile*</ion-label>
-              <ion-item class="input-item">
-                <ion-input type="tel"></ion-input>
-              </ion-item>
+                <ion-label position="floating">Mobile*</ion-label>
+                <ion-item class="input-item">
+                  <ion-input type="tel" formControlName="mobileNumber"></ion-input>
+                </ion-item>
 
-              <ion-label position="floating">Email*</ion-label>
-              <ion-item class="input-item">
-                <ion-input type="email"></ion-input>
-              </ion-item>
+                <ion-label position="floating">Email*</ion-label>
+                <ion-item class="input-item">
+                  <ion-input type="email" formControlName="email"></ion-input>
+                </ion-item>
 
-              <ion-row>
-                <ion-col size="6" class="ion-no-padding" class="padding-right">
-                  <ion-label position="floating">City*</ion-label>
-                  <ion-item class="input-item">
-                    <ion-input type="text"></ion-input>
-                  </ion-item>
-                </ion-col>
-                <ion-col size="6" class="ion-no-padding" class="padding-left">
-                  <ion-label position="floating">Zone</ion-label>
-                  <ion-item class="input-item">
-                    <ion-select interface="popover" placeholder="Select Zone">
-                      <ion-select-option value="dhaka">Dhaka City</ion-select-option>
-                      <ion-select-option value="ctg">Chittagong City</ion-select-option>
-                      <ion-select-option value="sylhet">Sylhet City</ion-select-option>
-                      <ion-select-option value="khulna">Khulna City</ion-select-option>
-                      <ion-select-option value="others">Others</ion-select-option>
-                      <!-- Add more options if needed -->
-                    </ion-select>
-                  </ion-item>
-                </ion-col>
-                
-              </ion-row>
+                <ion-row>
+                  <ion-col size="6" class="padding-right">
+                    <ion-label position="floating">City*</ion-label>
+                    <ion-item class="input-item">
+                      <ion-input type="text" formControlName="city"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-padding">
+                    <ion-label position="floating">Zone</ion-label>
+                    <ion-item class="input-item">
+                      <ion-select interface="popover" placeholder="Select Zone" formControlName="city">
+                        <ion-select-option value="dhaka">Dhaka City</ion-select-option>
+                        <ion-select-option value="ctg">Chittagong City</ion-select-option>
+                        <ion-select-option value="sylhet">Sylhet City</ion-select-option>
+                        <ion-select-option value="khulna">Khulna City</ion-select-option>
+                        <ion-select-option value="others">Others</ion-select-option>
+                        <!-- Add more options if needed -->
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
 
-
-
-              <ion-label position="floating">Comment</ion-label>
-              <ion-item class="input-item">
-                <ion-textarea></ion-textarea>
-              </ion-item>
+                </ion-row>
 
 
 
-              <!-- .div$*4 -->
-
+                <ion-label position="floating">Comment</ion-label>
+                <ion-item class="input-item" formControlName="comment">
+                  <ion-textarea></ion-textarea>
+                </ion-item>
+                <!-- .div$*4 -->
+              </form>
             </div>
           </ion-content>
 
@@ -281,7 +275,7 @@
 
           <ng-template #customerDetails>
             <ion-button expand="block" fill="solid" color="primary"
-              style="margin: 0; height: 58px; background: #ff5722;">
+              style="margin: 0; height: 58px; background: #ff5722;" id="present-alert">
               Confirm Order
             </ion-button>
 
@@ -290,15 +284,14 @@
         </ng-template>
       </div>
 
-
     </ion-modal>
-
-
-
-
 
   </ion-content>
 </div>
+
+<!-- Order Confirmation alert -->
+<ion-alert trigger="present-alert" header="Alert!" [buttons]="alertButtons"
+  (didDismiss)="setResult($event)"></ion-alert>
 
 <!-- nav menu -->
 <ion-menu contentId="main-content">
