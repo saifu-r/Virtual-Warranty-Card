@@ -135,7 +135,7 @@
 
       <!-- cart list -->
       <ion-row class="ion-margin-top">
-        <ion-col size="6" *ngFor="let product of products; let i=index" (click)="addToCart(product)"
+        <ion-col size="6" class="ion-no-margin" *ngFor="let product of products; let i=index" (click)="addToCart(product)"
           (click)="setOpen(true)">
           <ion-card class="store-products">
             <img src="../../assets/images/product01.jpg" class="margin-bottom">
@@ -156,7 +156,7 @@
     <!-- modal -->
     <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
 
-      <!-- cart info -->
+      <!-- modal details -->
       <div class="cart">
         <ng-template>
           <ion-header>
@@ -164,58 +164,20 @@
               <ion-buttons slot="end">
                 <ion-button *ngIf="showCart" (click)="cancel()" shape="round" slot="icon-only"><ion-icon
                     slot="icon-only" name="close-sharp" style="color: #2e2e2e;"></ion-icon></ion-button>
+              </ion-buttons>
+              <ion-buttons slot="start">
                 <ion-button *ngIf="!showCart" (click)="showCart = true" shape="round" slot="icon-only">
                   <ion-icon name="arrow-back-outline"></ion-icon>
                 </ion-button>
               </ion-buttons>
-              <ion-title>YOUR CART</ion-title>
+              <ion-title>{{showCart? 'Your Cart': 'Customer Information'}}</ion-title>
             </ion-toolbar>
           </ion-header>
 
           <ion-content class="ion-padding">
-            <div class="customer-info" [style]="showCart == true ? 'display: none' : 'display: block'">
-              <ng-template>
-                <ion-header>
-                  <ion-toolbar>
-                    <ion-buttons slot="end">
-                      <ion-button (click)="cancel()" shape="round" slot="icon-only"><ion-icon slot="icon-only"
-                          name="close-sharp" style="color: #2e2e2e;"></ion-icon></ion-button>
-                    </ion-buttons>
-                    <ion-title>Customer Info</ion-title>
-                  </ion-toolbar>
-                </ion-header>
-
-                <ion-content class="ion-padding">
-                  <h4 *ngIf="cart.length==0" style="text-align: center;">This is Customer Info.</h4>
-
-                </ion-content>
-
-                <!-- .div$*4 -->
-              </ng-template>
-            </div>
+            <!-- cart -->
             <div [style]="showCart == false ? 'display: none' : 'display: block'">
               <h4 *ngIf="cart.length==0" style="text-align: center;">Your shopping cart is empty!</h4>
-              <div *ngIf="false">
-                <ion-item *ngFor="let item of cart">
-                  <ion-row>
-                    <ion-col size="2">
-                      <ion-img src="../../assets/images/product01.jpg"></ion-img>
-                    </ion-col>
-                    <ion-col size="9" style="display: flex;
-                flex-direction: column;
-                justify-content: center;">
-                      <h3 style="margin: 0;">{{item.name}}</h3>
-                      <p>৳{{item.price}} x {{item.quantity}} = ৳{{item.totalPrice}}</p>
-                    </ion-col>
-                    <ion-col size="1" style="display: flex; align-items: center;">
-                      <ion-buttons slot="end">
-                        <ion-icon name="trash-bin-sharp" (click)="removeFromCart(item)"></ion-icon>
-                      </ion-buttons>
-                    </ion-col>
-                  </ion-row>
-                </ion-item>
-
-              </div>
               <ion-items>
                 <ion-item *ngFor="let item of cart">
                   <ion-avatar slot="start">
@@ -235,16 +197,95 @@
                 </ion-item>
               </ion-items>
             </div>
+
+            <!-- customer data -->
+            <div class="customer-info" [style]="showCart == true ? 'display: none' : 'display: block'">
+
+              <ion-row>
+                <ion-col size="6" class="ion-no-padding">
+                  <ion-label position="floating">First Name*</ion-label>
+                  <ion-item class="input-item">
+                    <ion-input type="text"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="6" class="ion-no-padding">
+                  <ion-label position="floating">Last Name*</ion-label>
+                  <ion-item class="input-item">
+                    <ion-input type="text"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+
+              <ion-label position="floating">Address*</ion-label>
+              <ion-item class="input-item">
+                <ion-input type="text"></ion-input>
+              </ion-item>
+
+              <ion-label position="floating">Mobile*</ion-label>
+              <ion-item class="input-item">
+                <ion-input type="tel"></ion-input>
+              </ion-item>
+
+              <ion-label position="floating">Email*</ion-label>
+              <ion-item class="input-item">
+                <ion-input type="email"></ion-input>
+              </ion-item>
+
+              <ion-row>
+                <ion-col size="6" class="ion-no-padding" class="padding-right">
+                  <ion-label position="floating">City*</ion-label>
+                  <ion-item class="input-item">
+                    <ion-input type="text"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="6" class="ion-no-padding" class="padding-left">
+                  <ion-label position="floating">Zone</ion-label>
+                  <ion-item class="input-item">
+                    <ion-select interface="popover" placeholder="Select Zone">
+                      <ion-select-option value="dhaka">Dhaka City</ion-select-option>
+                      <ion-select-option value="ctg">Chittagong City</ion-select-option>
+                      <ion-select-option value="sylhet">Sylhet City</ion-select-option>
+                      <ion-select-option value="khulna">Khulna City</ion-select-option>
+                      <ion-select-option value="others">Others</ion-select-option>
+                      <!-- Add more options if needed -->
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                
+              </ion-row>
+
+
+
+              <ion-label position="floating">Comment</ion-label>
+              <ion-item class="input-item">
+                <ion-textarea></ion-textarea>
+              </ion-item>
+
+
+
+              <!-- .div$*4 -->
+
+            </div>
           </ion-content>
 
-          <ion-item lines="none" style="text-align: center; justify-content: center;">
-            <h1>Total - ৳{{ cartTotal }}</h1>
-          </ion-item>
+          <div *ngIf="showCart; else customerDetails">
+            <ion-item lines="none" style="text-align: center; justify-content: center;">
+              <h1>Total - ৳{{ cartTotal }}</h1>
+            </ion-item>
 
-          <ion-button expand="block" fill="solid" color="primary" style="margin: 0; height: 58px; background: #ff5722;"
-            (click)="openCustomerReg()">
-            Proceed
-          </ion-button>
+            <ion-button expand="block" fill="solid" color="primary"
+              style="margin: 0; height: 58px; background: #ff5722;" (click)="openCustomerReg()">
+              Proceed
+            </ion-button>
+          </div>
+
+          <ng-template #customerDetails>
+            <ion-button expand="block" fill="solid" color="primary"
+              style="margin: 0; height: 58px; background: #ff5722;">
+              Confirm Order
+            </ion-button>
+
+          </ng-template>
 
         </ng-template>
       </div>

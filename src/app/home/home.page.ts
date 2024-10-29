@@ -185,4 +185,6 @@ export class HomePage implements OnInit {
   showNav(){
     document.getElementById('navBar')?.click()
   }
+
+  
 }
