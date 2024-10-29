@@ -38,12 +38,10 @@
       <div class="card-inner">
         <div class="card-front">
           <div>
-
             <div class="ion-justify-content-between flex ion-align-items-center ion-margin-top" style="display: flex;">
               <h3> Virtual Warranty Card</h3>
               <ion-img src="../../assets/icon/favicon.png" style="height: 30px;"></ion-img>
             </div>
-
             <ion-row id="warrantyCard">
               <span *ngIf="isQrCodeSizeUpdated == false"> {{updateQrCodeWidth()}}</span>
               <ion-col size="4" *ngIf="isQrCodeSizeUpdated">
@@ -56,15 +54,12 @@
                 <p style="color: white; font-size: 20px;">1201-1299-12393</p>
               </ion-col>
             </ion-row>
-
             <div class="exp-date ion-margin-top">
               <h5>Exp</h5>
               <h3>12/25</h3>
             </div>
-
           </div>
         </div>
-
         <div class="card-back">
           <p>Follow Below steps to request your warranty claim.</p>
           <p>1. Go to my My Account. <br> 2. Tap on Request Claim. <br> 3. Enter Information and
@@ -90,7 +85,6 @@
           <ion-col sizeXs="8" sizeSm="7" sizeMd="8">
             <div style="margin-left: 10px;">
               <h3>Warranty Card</h3>
-
               <p>125412586ED</p>
               <p class="card-status">Active</p>
               <br>
@@ -110,7 +104,6 @@
                   <td>: 20-01-2014</td>
                 </tr>
               </table>
-
             </div>
           </ion-col>
         </ion-row>
@@ -141,13 +134,11 @@
             <h5>৳{{product.price}}</h5>
           </ion-card>
         </ion-col>
-
       </ion-row>
 
       <!-- toast message -->
       <ion-toast [isOpen]="isToastOpen" message="Product added to your shopping cart!" [duration]="2000"
         (didDismiss)="setOpen(false)"></ion-toast>
-
     </div>
 
     <!-- modal -->
@@ -169,8 +160,8 @@
               <ion-title>{{showCart? 'Your Cart': 'Customer Information'}}</ion-title>
             </ion-toolbar>
           </ion-header>
-
           <ion-content class="ion-padding">
+
             <!-- cart -->
             <div [style]="showCart == false ? 'display: none' : 'display: block'">
               <h4 *ngIf="cart.length==0" style="text-align: center;">Your shopping cart is empty!</h4>
@@ -196,7 +187,6 @@
 
             <!-- customer data -->
             <div class="customer-info" [style]="showCart == true ? 'display: none' : 'display: block'">
-
               <form [formGroup]="customerForm">
                 <ion-row>
                   <ion-col size="6" class="padding-right">
@@ -212,22 +202,18 @@
                     </ion-item>
                   </ion-col>
                 </ion-row>
-
                 <ion-label position="floating">Address*</ion-label>
                 <ion-item class="input-item">
                   <ion-input type="text" formControlName="address"></ion-input>
                 </ion-item>
-
                 <ion-label position="floating">Mobile*</ion-label>
                 <ion-item class="input-item">
                   <ion-input type="tel" formControlName="mobileNumber"></ion-input>
                 </ion-item>
-
                 <ion-label position="floating">Email*</ion-label>
                 <ion-item class="input-item">
                   <ion-input type="email" formControlName="email"></ion-input>
                 </ion-item>
-
                 <ion-row>
                   <ion-col size="6" class="padding-right">
                     <ion-label position="floating">City*</ion-label>
@@ -244,15 +230,10 @@
                         <ion-select-option value="sylhet">Sylhet City</ion-select-option>
                         <ion-select-option value="khulna">Khulna City</ion-select-option>
                         <ion-select-option value="others">Others</ion-select-option>
-                        <!-- Add more options if needed -->
                       </ion-select>
                     </ion-item>
                   </ion-col>
-
                 </ion-row>
-
-
-
                 <ion-label position="floating">Comment</ion-label>
                 <ion-item class="input-item" formControlName="comment">
                   <ion-textarea></ion-textarea>
@@ -289,9 +270,6 @@
   </ion-content>
 </div>
 
-<!-- Order Confirmation alert -->
-
-
 <!-- nav menu -->
 <ion-menu contentId="main-content">
   <ion-header>
@@ -320,13 +298,13 @@
         </ion-label>
       </ion-item>
       <ion-item button lines="none">
-        <ion-icon class="side-nav-icon" aria-hidden="true" name="reload" slot="start" color="primary"></ion-icon>
+        <ion-icon class="side-nav-icon" aria-hidden="true" name="refresh-circle" slot="start" color="primary"></ion-icon>
         <ion-label>Reload</ion-label>
       </ion-item>
 
       <ion-item button lines="none">
-        <ion-icon class="side-nav-icon" aria-hidden="true" name="settings" slot="start" color="primary"></ion-icon>
-        <ion-label>Settings</ion-label>
+        <ion-icon class="side-nav-icon" aria-hidden="true" name="home" slot="start" color="primary"></ion-icon>
+        <ion-label>Order History</ion-label>
       </ion-item>
 
       <ion-item button lines="none">
