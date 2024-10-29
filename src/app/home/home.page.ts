@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { IonModal } from '@ionic/angular';
+import { IonModal, AlertController  } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { Router } from '@angular/router';
 import { faXmark, faRotateRight, faGear, faArrowRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
@@ -77,7 +77,8 @@ export class HomePage implements OnInit {
     private router: Router,
     private location: Location,
     private cdr: ChangeDetectorRef,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private alertController: AlertController 
   ) {
     this.qrCode = window.location.href;
   }
@@ -188,22 +189,29 @@ export class HomePage implements OnInit {
     document.getElementById('navBar')?.click()
   }
 
-  public alertButtons = [
-    {
-      text: 'Cancel',
-      role: 'cancel',
-      handler: () => {
-        console.log('Alert canceled');
-      },
-    },
-    {
-      text: 'OK',
-      role: 'confirm',
-      handler: () => {
-        console.log('Alert confirmed');
-      },
-    },
-  ];
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Do you want to confirm your order?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Alert canceled');
+          },
+        },
+        {
+          text: 'Yes',
+          role: 'confirm',
+          handler: () => {
+            console.log('Alert confirmed');
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
 
   setResult(ev: any) {
     console.log(`Dismissed with role: ${ev.detail.role}`);

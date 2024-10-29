@@ -275,7 +275,7 @@
 
           <ng-template #customerDetails>
             <ion-button expand="block" fill="solid" color="primary"
-              style="margin: 0; height: 58px; background: #ff5722;" id="present-alert">
+              style="margin: 0; height: 58px; background: #ff5722;" (click)="presentAlert()">
               Confirm Order
             </ion-button>
 
@@ -290,8 +290,7 @@
 </div>
 
 <!-- Order Confirmation alert -->
-<ion-alert trigger="present-alert" header="Alert!" [buttons]="alertButtons"
-  (didDismiss)="setResult($event)"></ion-alert>
+
 
 <!-- nav menu -->
 <ion-menu contentId="main-content">
@@ -322,7 +321,7 @@
       </ion-item>
       <ion-item button lines="none">
         <ion-icon class="side-nav-icon" aria-hidden="true" name="reload" slot="start" color="primary"></ion-icon>
-        <ion-label color="primary">Reload</ion-label>
+        <ion-label>Reload</ion-label>
       </ion-item>
 
       <ion-item button lines="none">
