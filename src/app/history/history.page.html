@@ -14,27 +14,79 @@
   <div class="ion-padding card-container">
 
     <ion-accordion-group>
-      <ion-accordion value="first">
-        <ion-item slot="header" style="height: 100px;">
-          <ion-label>ORDER# .999012</ion-label>
-          <span style="font-size: 12px; margin-bottom: 0px;">20-Dec-2023, 3:00 PM</span>
-          <p>Delivered at 22-Dec-2023</p>
-        </ion-item>
-        <div class="ion-padding" slot="content">First Content</div>
-      </ion-accordion>
-      <ion-accordion value="second">
+      <ion-accordion>
         <ion-item slot="header">
-          <ion-label>ORDER# .689012</ion-label>
+          <div class="order-item ion-margin-top">
+            <ion-label>Order# .999012</ion-label>
+            <span style="font-size: 12px; margin-bottom: 0px;">20-Dec-2023, 3:00 PM</span>
+            <p color="primary">Delivered at 22-Dec-2023</p>
+          </div>
         </ion-item>
-        <div class="ion-padding" slot="content">Second Content</div>
+        <div slot="content">
+
+
+          <ion-item *ngFor="let item of cart">
+            <ion-avatar slot="start">
+              <img src="../../assets/images/product01.jpg" />
+            </ion-avatar>
+            <ion-label>{{item.name }}
+              <P>৳{{item.price}} x {{item.quantity}} = ৳{{item.totalPrice}}</P>
+            </ion-label>
+          </ion-item>
+
+          <ion-label>Total- ৳{{cartTotal}}</ion-label>
+        </div>
       </ion-accordion>
-      <ion-accordion value="third">
+      <ion-accordion>
         <ion-item slot="header">
-          <ion-label>ORDER# .100012</ion-label>
+          <div class="order-item ion-margin-top">
+            <ion-label>Order# .999012</ion-label>
+            <span style="font-size: 12px; margin-bottom: 0px;">20-Dec-2023, 3:00 PM</span>
+            <p color="warning">Delivered at 22-Dec-2023</p>
+          </div>
         </ion-item>
-        <div class="ion-padding" slot="content">Third Content</div>
+        <div slot="content">
+
+
+          <ion-item *ngFor="let item of cart">
+            <ion-avatar slot="start">
+              <img src="../../assets/images/product01.jpg" />
+            </ion-avatar>
+            <ion-label>{{item.name }}
+              <P>৳{{item.price}} x {{item.quantity}} = ৳{{item.totalPrice}}</P>
+            </ion-label>
+          </ion-item>
+
+          <ion-label>Total- ৳{{cartTotal}}</ion-label>
+        </div>
       </ion-accordion>
+      <ion-accordion>
+        <ion-item slot="header">
+          <div class="order-item ion-margin-top">
+            <ion-label>Order# .999012</ion-label>
+            <span style="font-size: 12px; margin-bottom: 0px;">20-Dec-2023, 3:00 PM</span>
+            <p color="primary">Delivered at 22-Dec-2023</p>
+          </div>
+        </ion-item>
+        <div slot="content">
+
+
+          <ion-item *ngFor="let item of cart">
+            <ion-avatar slot="start">
+              <img src="../../assets/images/product01.jpg" />
+            </ion-avatar>
+            <ion-label>{{item.name }}
+              <P>৳{{item.price}} x {{item.quantity}} = ৳{{item.totalPrice}}</P>
+            </ion-label>
+          </ion-item>
+
+          <ion-label>Total- ৳{{cartTotal}}</ion-label>
+        </div>
+      </ion-accordion>
+      
     </ion-accordion-group>
+
+    
 
 
   </div>

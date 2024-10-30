@@ -87,7 +87,7 @@ export class HomePage implements OnInit {
   }
 
   cardClick() {
-    console.log("hello");
+    console.log(this.cart);
   }
 
   hideCard() {

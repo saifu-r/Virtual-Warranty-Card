@@ -28,10 +28,14 @@ ion-accordion.accordion-expanded ion-item[slot='header'] {
   width: 40%;
 }
 
-
+.accordion-content{
+  width: auto !important;
+}
 
 @media (max-width: 992px) {
   .card-container {
     width: 90%;
   }
 }
+
+
