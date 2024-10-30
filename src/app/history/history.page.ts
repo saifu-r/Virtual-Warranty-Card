@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryPage implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
+  }
+
+  navigateHome(){
+    // this.router.navigate(['/cart'])
+    this.location.back();
   }
 
 }
