@@ -8,6 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardDetailsPage implements OnInit {
 
+  product = [
+    {
+      "name": "Pixel 7",
+      "description": "Lorem, ipsum dolor sit",
+      "price": "52000",
+      "img": ""
+
+    }
+  ]
+
   constructor(private location: Location) { }
 
   ngOnInit() {

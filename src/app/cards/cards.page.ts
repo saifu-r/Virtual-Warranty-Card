@@ -1,8 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-cards',
@@ -11,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class CardsPage implements OnInit {
 
-  constructor(private location: Location, private cdr: ChangeDetectorRef, private router: Router) { 
+  constructor(
+    private location: Location,
+    private cdr: ChangeDetectorRef,
+    private router: Router) {
     this.qrCode = window.location.href;
   }
 
@@ -22,7 +23,7 @@ export class CardsPage implements OnInit {
   ngOnInit() {
   }
 
-  navigateBack(){
+  navigateBack() {
     this.location.back();
   }
 
@@ -36,12 +37,7 @@ export class CardsPage implements OnInit {
     }
   }
 
-  navCardDetails(){
+  navCardDetails() {
     this.router.navigate(['card-details'])
   }
-
-
-
-
-
 }
