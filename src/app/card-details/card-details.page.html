@@ -10,19 +10,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<ion-card>
-  
 
-  <ion-row>
-    <ion-col sizeSm="6" size="12">
-      <ion-img src="../../assets/images/product02.jpg"></ion-img>
-    </ion-col>
-    <ion-col sizeSm="6" size="12">
-      <ion-label>{{product[0].name}}</ion-label>
-      <h4>{{product[0].description}}</h4>
-      <p>{{product[0].price}}</p>
-    </ion-col>
-  </ion-row>
+  <div class="vwc-card-container">
+    <ion-card>
+      <ion-row>
+        <ion-col sizeSm="6" size="12">
+          <ion-img src="../../assets/images/product02.jpg"></ion-img>
+        </ion-col>
+        <ion-col sizeSm="6" size="12" class="product-details">
+          <h4>{{product[0].name}}</h4>
+          <ion-label>{{product[0].description}}</ion-label>
+          <p>৳{{product[0].price}}</p>
+          <ion-button expand="block" fill="solid" shape="round">
+            Claim Warranty
+          </ion-button>
+        </ion-col>
+      </ion-row>
 
-</ion-card>
+    </ion-card>
+  </div>
 </ion-content>
