@@ -1,5 +1,5 @@
 // import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, ChangeDetectorRef } from '@angular/core';
 
 export interface Dataset{
   products?: boolean
@@ -10,28 +10,26 @@ export interface Dataset{
 })
 export class DatasetService {
 
-  constructor() { }
+  qrCode: string = '';
+  qrCodeWidth = 0;
+  isQrCodeSizeUpdated = false;
 
-  async get(singleDataset: Dataset) {
-    let getKeys = Object.keys(singleDataset);
-    let data = null;
-    if (getKeys.length > 0) {
-      let jsonData = await require("../database/" + getKeys[0] + ".json");
-      // let jsonData: any
-      // console.log(jsonData);
-      
-      data = jsonData;
+  constructor(private cdr: ChangeDetectorRef) {
+    this.qrCode = window.location.href;
+   }
+
+  updateQrCodeWidth() {
+    let clientWidth: any = document.getElementById('warrantyCard')?.offsetWidth;
+    if (clientWidth) {
+      let size = clientWidth / 4;
+      this.qrCodeWidth = size;
+      this.isQrCodeSizeUpdated = true;
+      this.cdr.detectChanges();
     }
-    return this.responseFormat(data);
   }
+  
 
-  private responseFormat(data: any) {
-    let responseFormat = {
-      success: data != null ? true : false,
-      data: data
-    };
-    return responseFormat;
-  }
+
 
 
 }

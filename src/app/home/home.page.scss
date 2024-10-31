@@ -38,12 +38,7 @@ p {
 }
 
 
-.card-container {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  width: 40%;
-}
+
 
 .card-info {
   display: flex;
@@ -317,10 +312,6 @@ hr {
 
 // for mobile screens
 @media (max-width: 992px) {
-  .card-container {
-    width: 90%;
-  }
-
   .card {
     height: 200px !important;
   }

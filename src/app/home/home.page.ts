@@ -22,12 +22,9 @@ export class HomePage implements OnInit {
   isCardVisible: boolean = true
   isDropdownActive = false;
   qrCode: string = '';
-
   clientWidth = 0
-
   isToastOpen = false;
   showCart= true
-
 
   icons = {
     faXmark: faXmark,
@@ -36,7 +33,6 @@ export class HomePage implements OnInit {
     faArrowRightFromBracket: faArrowRightFromBracket,
     faCartShopping: faCartShopping,
   }
-
 
   products = [
     {
@@ -150,7 +146,6 @@ export class HomePage implements OnInit {
     if (index > -1) {
       this.cart.splice(index, 1);  // Remove the product from the cart array
     }
-
     this.cartTotal = this.getCartTotal();
   }
 
@@ -163,7 +158,6 @@ export class HomePage implements OnInit {
 
   openCustomerReg(){
     console.log("before pressing"+ this.showCart);
-    
     this.showCart= false
     console.log("after pressing"+ this.showCart);
   }
@@ -184,7 +178,6 @@ export class HomePage implements OnInit {
   }
 
   // alert panel
-
   showNav(){
     document.getElementById('navBar')?.click()
   }
@@ -212,7 +205,6 @@ export class HomePage implements OnInit {
     await alert.present();
   }
 
-
   setResult(ev: any) {
     console.log(`Dismissed with role: ${ev.detail.role}`);
   }
@@ -225,23 +217,14 @@ export class HomePage implements OnInit {
     email: ['',Validators.required],
     city: ['',Validators.required],
     comment: ['',Validators.required],
-
-
   })
-
-
 
   navigateHistory(){
     this.router.navigate(['/history']);
-    
   }
 
   navigateCards(){
     this.router.navigate(['/cards']);
     console.log("hello");
   }
-
-
-
-  
 }

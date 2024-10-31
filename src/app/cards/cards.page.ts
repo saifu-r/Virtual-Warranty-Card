@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
+import { DatasetService } from '../services/dataset.service';
+
 
 @Component({
   selector: 'app-cards',
@@ -8,7 +10,12 @@ import {Location} from '@angular/common';
 })
 export class CardsPage implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, private datasets: DatasetService) { }
+
+  qrCode: string= this.datasets.qrCode
+  qrCodeWidth = this.datasets.qrCodeWidth;
+  isQrCodeSizeUpdated = this.datasets.isQrCodeSizeUpdated;
+
 
   ngOnInit() {
   }
@@ -16,5 +23,11 @@ export class CardsPage implements OnInit {
   navigateHome(){
     this.location.back();
   }
+
+  updateQrCodeWidth(){
+    this.datasets.updateQrCodeWidth();
+  }
+
+
 
 }
