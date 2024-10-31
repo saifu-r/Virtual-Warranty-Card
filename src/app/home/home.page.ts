@@ -80,6 +80,8 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.qrCode);
+    
   }
 
   cardClick() {
@@ -225,6 +227,5 @@ export class HomePage implements OnInit {
 
   navigateCards(){
     this.router.navigate(['/cards']);
-    console.log("hello");
   }
 }

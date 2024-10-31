@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import {Location} from '@angular/common';
-import { DatasetService } from '../services/dataset.service';
+
 
 
 @Component({
@@ -10,22 +10,30 @@ import { DatasetService } from '../services/dataset.service';
 })
 export class CardsPage implements OnInit {
 
-  constructor(private location: Location, private datasets: DatasetService) { }
+  constructor(private location: Location, private cdr: ChangeDetectorRef) { 
+    this.qrCode = window.location.href;
+  }
 
-  qrCode: string= this.datasets.qrCode
-  qrCodeWidth = this.datasets.qrCodeWidth;
-  isQrCodeSizeUpdated = this.datasets.isQrCodeSizeUpdated;
-
+  qrCode: string = '';
+  qrCodeWidth = 0;
+  isQrCodeSizeUpdated = false;
 
   ngOnInit() {
   }
 
   navigateHome(){
+    console.log("hello");
     this.location.back();
   }
 
-  updateQrCodeWidth(){
-    this.datasets.updateQrCodeWidth();
+  updateQrCodeWidth() {
+    let clientWidth: any = document.getElementById('warrantyCard')?.offsetWidth;
+    if (clientWidth) {
+      let size = clientWidth / 4;
+      this.qrCodeWidth = size;
+      this.isQrCodeSizeUpdated = true;
+      this.cdr.detectChanges();
+    }
   }
 
 

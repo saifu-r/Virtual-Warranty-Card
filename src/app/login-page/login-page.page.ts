@@ -23,15 +23,12 @@ export class LoginPagePage implements OnInit {
   }
 
   submitForm(){
-
     if (this.loginForm.valid) {
       // console.log(this.loginForm.value);
       const userEmail: string= this.loginForm.value.email || ""
-      localStorage.setItem("userEmail", userEmail )
+      localStorage.setItem("userEmail", userEmail)
       this.router.navigate(['/home'])
     }
-   
-    
   }
 
   signup(){
