@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start" (click)="navigateHome()">
+    <ion-buttons slot="start" (click)="navigateBack()">
       <ion-button shape="round" slot="icon-only">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
@@ -13,14 +13,14 @@
 
   <div class="ion-padding vwc-card-container">
     <!-- warranty card -->
-    <ion-card style="padding: 10px; margin-left: -25px; margin-right: -25px;">
+    <ion-card (click)="navCardDetails()">
       <img src="../../assets/images/04162020_iPhone_SE_STORY_LEVEL_BANNER_1600x483.jpg" class="card-bg-image">
       <ion-row id="warrantyCard">
         <span *ngIf="isQrCodeSizeUpdated == false"> {{updateQrCodeWidth()}}</span>
-        <ion-col sizeXs="4" sizeSm="5" sizeMd="4">
+        <ion-col sizeXs="4" sizeSm="5" sizeMd="4" class="qr-info">
           <qrcode [qrdata]="qrCode" [errorCorrectionLevel]="'M'" class="custom-qr" [width]="qrCodeWidth" [margin]="1">
           </qrcode>
-          <span style="margin-left: 15px;">125412586ED</span>
+          <span>125412586ED</span>
         </ion-col>
         <ion-col sizeXs="8" sizeSm="7" sizeMd="8">
           <div style="margin-left: 10px;">
@@ -48,14 +48,14 @@
       </ion-row>
     </ion-card>
 
-    <ion-card style="padding: 10px; margin-left: -25px; margin-right: -25px;">
+    <ion-card>
       <img src="../../assets/images/04162020_iPhone_SE_STORY_LEVEL_BANNER_1600x483.jpg" class="card-bg-image">
       <ion-row id="warrantyCard">
         <span *ngIf="isQrCodeSizeUpdated == false"> {{updateQrCodeWidth()}}</span>
-        <ion-col sizeXs="4" sizeSm="5" sizeMd="4">
+        <ion-col sizeXs="4" sizeSm="5" sizeMd="4" class="qr-info"> 
           <qrcode [qrdata]="qrCode" [errorCorrectionLevel]="'M'" class="custom-qr" [width]="qrCodeWidth" [margin]="1">
           </qrcode>
-          <span style="margin-left: 15px;">125412586ED</span>
+          <span>125412586ED</span>
         </ion-col>
         <ion-col sizeXs="8" sizeSm="7" sizeMd="8">
           <div style="margin-left: 10px;">
@@ -83,14 +83,14 @@
       </ion-row>
     </ion-card>
 
-    <ion-card style="padding: 10px; margin-left: -25px; margin-right: -25px;">
+    <ion-card>
       <img src="../../assets/images/04162020_iPhone_SE_STORY_LEVEL_BANNER_1600x483.jpg" class="card-bg-image">
       <ion-row id="warrantyCard">
         <span *ngIf="isQrCodeSizeUpdated == false"> {{updateQrCodeWidth()}}</span>
-        <ion-col sizeXs="4" sizeSm="5" sizeMd="4">
+        <ion-col sizeXs="4" sizeSm="5" sizeMd="4" class="qr-info"> 
           <qrcode [qrdata]="qrCode" [errorCorrectionLevel]="'M'" class="custom-qr" [width]="qrCodeWidth" [margin]="1">
           </qrcode>
-          <span style="margin-left: 15px;">125412586ED</span>
+          <span>125412586ED</span>
         </ion-col>
         <ion-col sizeXs="8" sizeSm="7" sizeMd="8">
           <div style="margin-left: 10px;">
