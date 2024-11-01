@@ -20,7 +20,8 @@
           <h4>{{product[0].name}}</h4>
           <ion-label class="ion-margin-top">{{product[0].description}}</ion-label>
           <h4 class="ion-margin-top">৳{{product[0].price}}</h4>
-          <ion-button expand="block" fill="solid" shape="round" id="open-modal-details" (click)="onClick()" class="ion-margin-top">
+          <ion-button expand="block" fill="solid" shape="round" id="open-modal-details" (click)="onClick()"
+            class="ion-margin-top">
             Claim Warranty
           </ion-button>
         </ion-col>
@@ -35,16 +36,35 @@
         <ion-toolbar>
           <ion-title>Product Details</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="cancel()" shape="round" slot="icon-only"><ion-icon
-                slot="icon-only" name="close-sharp" style="color: #2e2e2e;"></ion-icon></ion-button>
+            <ion-button (click)="cancel()" shape="round" slot="icon-only"><ion-icon slot="icon-only" name="close-sharp"
+                style="color: #2e2e2e;"></ion-icon></ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
-        <h1>Please Provide Product Details...</h1>
+        <!-- <h1>Please Provide Product Details...</h1> -->
+
+        <!-- issues -->
+        <ion-label position="floating">Issues</ion-label>
+        <ion-select interface="popover" placeholder="Select Issue" class="input-item">
+          <ion-select-option value="not_functioning">Product Not Functioning Properly</ion-select-option>
+          <ion-select-option value="physical_damage">Physical Damage (Cracked Screen/Casing)</ion-select-option>
+          <ion-select-option value="battery_issue">Battery Draining Quickly / Overheating</ion-select-option>
+          <ion-select-option value="software_problem">Software Problems (Freezing / Errors)</ion-select-option>
+          <ion-select-option value="connectivity_issue">Connectivity Issues (Wi-Fi/Bluetooth)</ion-select-option>
+          <ion-select-option value="audio_issue">Sound/Microphone Issues</ion-select-option>
+          <ion-select-option value="accessory_problem">Accessory Problems (Charger/Headphones)</ion-select-option>
+          <ion-select-option value="component_defect">Defective Components (Sensors/Display)</ion-select-option>
+        </ion-select>
+
+
+        <!-- message -->
+        <ion-label position="floating">Comment</ion-label>
+        <ion-textarea class="input-item"></ion-textarea>
+
+
       </ion-content>
     </ng-template>
   </ion-modal>
 
 </ion-content>
-
