@@ -50,4 +50,9 @@ export class CardDetailsPage implements OnInit {
     this.location.back();
   }
 
+  onClick(){
+    console.log("hello");
+    
+  }
+
 }

@@ -18,9 +18,9 @@
         </ion-col>
         <ion-col sizeSm="6" size="12" class="product-details">
           <h4>{{product[0].name}}</h4>
-          <ion-label>{{product[0].description}}</ion-label>
-          <p>৳{{product[0].price}}</p>
-          <ion-button expand="block" fill="solid" shape="round" id="open-modal">
+          <ion-label class="ion-margin-top">{{product[0].description}}</ion-label>
+          <h4 class="ion-margin-top">৳{{product[0].price}}</h4>
+          <ion-button expand="block" fill="solid" shape="round" id="open-modal-details" (click)="onClick()" class="ion-margin-top">
             Claim Warranty
           </ion-button>
         </ion-col>
@@ -29,7 +29,7 @@
   </div>
 
 
-  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ion-modal trigger="open-modal-details" (willDismiss)="onWillDismiss($event)">
     <ng-template>
       <ion-header>
         <ion-toolbar>
