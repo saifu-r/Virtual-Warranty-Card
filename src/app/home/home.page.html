@@ -13,16 +13,19 @@
 
       <!-- css badge -->
       <ion-buttons slot="end" class="cart-container">
+        <!-- scanner -->
+        <ion-button shape="round" fill="clear">
+          <ion-icon slot="icon-only" name="scan"></ion-icon>
+        </ion-button>
+        
+        <!-- cart -->
         <ion-button shape="round" fill="clear" id="open-modal" (click)="cardClick()">
           <ion-icon slot="icon-only" name="cart-sharp"></ion-icon>
-
           <!-- Notification Badge -->
-          <div class="cart-badge" *ngIf="cart.length > 0">
-            <!-- <script>console.log("hello")</script> -->
-
-            {{ cart.length }}
-          </div>
+          <div class="cart-badge" *ngIf="cart.length> 0">{{cart.length}}</div>
         </ion-button>
+
+        
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
