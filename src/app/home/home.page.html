@@ -141,14 +141,14 @@
         <ng-template>
           <ion-header>
             <ion-toolbar>
-              <ion-buttons slot="end">
-                <ion-button *ngIf="showCart" (click)="cancel()" shape="round" slot="icon-only"><ion-icon
-                    slot="icon-only" name="close-sharp" style="color: #2e2e2e;"></ion-icon></ion-button>
-              </ion-buttons>
               <ion-buttons slot="start">
                 <ion-button *ngIf="!showCart" (click)="showCart = true" shape="round" slot="icon-only">
                   <ion-icon name="arrow-back-outline"></ion-icon>
                 </ion-button>
+              </ion-buttons>
+              <ion-buttons slot="end">
+                <ion-button *ngIf="showCart" (click)="cancel()" shape="round" slot="icon-only"><ion-icon
+                    slot="icon-only" name="close-sharp" style="color: #2e2e2e;"></ion-icon></ion-button>
               </ion-buttons>
               <ion-title>{{showCart? 'Your Cart': 'Customer Information'}}</ion-title>
             </ion-toolbar>
