@@ -228,4 +228,8 @@ export class HomePage implements OnInit {
   navigateCards(){
     this.router.navigate(['/cards']);
   }
+
+  navigateScanner(){
+    this.router.navigate(['/scanner']);
+  }
 }
