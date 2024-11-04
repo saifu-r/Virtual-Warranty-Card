@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { IonModal, AlertController  } from '@ionic/angular';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
+import { IonModal, AlertController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { Router } from '@angular/router';
 import { faXmark, faRotateRight, faGear, faArrowRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { Location, } from '@angular/common';
 import { FormBuilder, Validators } from '@angular/forms';
-
+import { Messaging, getToken, onMessage, deleteToken } from '@angular/fire/messaging'
+import { Observable, tap } from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,7 @@ export class HomePage implements OnInit {
   qrCode: string = '';
   clientWidth = 0
   isToastOpen = false;
-  showCart= true
+  showCart = true
 
   icons = {
     faXmark: faXmark,
@@ -68,21 +69,53 @@ export class HomePage implements OnInit {
 
   qrCodeWidth = 0;
   isQrCodeSizeUpdated = false;
+  messaging$ = inject(Messaging);
+  message$: any;
 
   constructor(
     private router: Router,
     private location: Location,
     private cdr: ChangeDetectorRef,
     private formBuilder: FormBuilder,
-    private alertController: AlertController 
+    private alertController: AlertController,
+    private msg: Messaging
   ) {
     this.qrCode = window.location.href;
+    Notification.requestPermission().then(
+      (notificationPermissions: NotificationPermission) => {
+        if (notificationPermissions === "granted") {
+          console.log("Granted");
+        }
+        if (notificationPermissions === "denied") {
+          console.log("Denied");
+        }
+      });
   }
 
   ngOnInit() {
-    console.log(this.qrCode);
-    
+    // console.log(this.qrCode);
+    // this.message$ = new Observable((sub) => onMessage(this.msg, (msg) =>     
+    //   sub.next(msg))).pipe(
+    //   tap((msg) => {
+    //     console.log("My Firebase Cloud Message", msg);
+    //   })
+    // );
+    // }
+
+    this.message$ = new Observable((sub) => onMessage(this.msg, (msg) =>     
+      sub.next(msg))).pipe(
+	    tap((msg) => {
+	      console.log("My Firebase Cloud Message", msg);
+	    })
+    );
   }
+
+
+
+
+
+
+
 
   cardClick() {
     console.log(this.cart);
@@ -158,10 +191,10 @@ export class HomePage implements OnInit {
     this.cartTotal = 0
   }
 
-  openCustomerReg(){
-    console.log("before pressing"+ this.showCart);
-    this.showCart= false
-    console.log("after pressing"+ this.showCart);
+  openCustomerReg() {
+    console.log("before pressing" + this.showCart);
+    this.showCart = false
+    console.log("after pressing" + this.showCart);
   }
 
 
@@ -180,7 +213,7 @@ export class HomePage implements OnInit {
   }
 
   // alert panel
-  showNav(){
+  showNav() {
     document.getElementById('navBar')?.click()
   }
 
@@ -211,25 +244,25 @@ export class HomePage implements OnInit {
     console.log(`Dismissed with role: ${ev.detail.role}`);
   }
 
-  customerForm= this.formBuilder.group({
-    firstName: ['',Validators.required],
-    lastName: ['',Validators.required],
-    address: ['',Validators.required],
-    mobileNumber: ['',Validators.required],
-    email: ['',Validators.required],
-    city: ['',Validators.required],
-    comment: ['',Validators.required],
+  customerForm = this.formBuilder.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    address: ['', Validators.required],
+    mobileNumber: ['', Validators.required],
+    email: ['', Validators.required],
+    city: ['', Validators.required],
+    comment: ['', Validators.required],
   })
 
-  navigateHistory(){
+  navigateHistory() {
     this.router.navigate(['/history']);
   }
 
-  navigateCards(){
+  navigateCards() {
     this.router.navigate(['/cards']);
   }
 
-  navigateScanner(){
+  navigateScanner() {
     this.router.navigate(['/scanner']);
   }
 }
