@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { faXmark, faRotateRight, faGear, faArrowRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { Location, } from '@angular/common';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Messaging, getToken, onMessage, deleteToken } from '@angular/fire/messaging'
+import { Messaging, getToken, onMessage, deleteToken, getMessaging, } from '@angular/fire/messaging'
 import { Observable, tap } from "rxjs";
 
 @Component({
@@ -71,6 +71,7 @@ export class HomePage implements OnInit {
   isQrCodeSizeUpdated = false;
   messaging$ = inject(Messaging);
   message$: any;
+  deviceToken: string = '';
 
   constructor(
     private router: Router,
@@ -81,41 +82,37 @@ export class HomePage implements OnInit {
     private msg: Messaging
   ) {
     this.qrCode = window.location.href;
-    Notification.requestPermission().then(
-      (notificationPermissions: NotificationPermission) => {
-        if (notificationPermissions === "granted") {
-          console.log("Granted");
-        }
-        if (notificationPermissions === "denied") {
-          console.log("Denied");
-        }
-      });
   }
 
   ngOnInit() {
-    // console.log(this.qrCode);
-    // this.message$ = new Observable((sub) => onMessage(this.msg, (msg) =>     
-    //   sub.next(msg))).pipe(
-    //   tap((msg) => {
-    //     console.log("My Firebase Cloud Message", msg);
-    //   })
-    // );
-    // }
 
-    this.message$ = new Observable((sub) => onMessage(this.msg, (msg) =>     
-      sub.next(msg))).pipe(
-	    tap((msg) => {
-	      console.log("My Firebase Cloud Message", msg);
-	    })
-    );
+    navigator.serviceWorker
+      .register("/assets/firebase-messaging-sw.js", {
+        type: "module",
+      })
+      .then((serviceWorkerRegistration) => {
+        getToken(this.msg, {
+          vapidKey: `BPZHzAKPEpWfhMdlsYPvcR0bnCX5rknq3TTrcRh4qLbynVaTIvFqSkwM4U5-osMK3BQ6Lz9maoboBdmGIG5QWVQ`,
+          serviceWorkerRegistration: serviceWorkerRegistration,
+        }).then((x) => {
+          this.deviceToken = x;
+          console.log(this.deviceToken);
+        });
+      });
   }
 
+  async createMessage() {
 
+    const message = {
+      notification: {
+        title: "Test Title",
+        body: "Test Body",
+      },
+      token: "your token here, you can store these and retrieve as you please",
+    };
+    // await this.msg.messaging().send(message);
 
-
-
-
-
+  }
 
   cardClick() {
     console.log(this.cart);
