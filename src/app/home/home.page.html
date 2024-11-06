@@ -188,47 +188,63 @@
                   <ion-col size="6" class="padding-right">
                     <ion-label position="floating">First Name*</ion-label>
                     <ion-input type="text" class="input-item" formControlName="firstName"></ion-input>
+                    <p class="invalid-form" *ngIf="customerForm.get('firstName')?.touched && customerForm.get('firstName')?.invalid">
+                      *Please fill in your first name
+                    </p>
                   </ion-col>
                   <ion-col size="6" class="ion-no-padding">
                     <ion-label position="floating">Last Name*</ion-label>
                     <ion-input type="text" class="input-item" formControlName="lastName"></ion-input>
+                    <p class="invalid-form" *ngIf="customerForm.get('lastName')?.touched && customerForm.get('lastName')?.invalid">
+                      *Please fill in your last name
+                    </p>
                   </ion-col>
                 </ion-row>
-
+            
                 <ion-label position="floating">Address*</ion-label>
                 <ion-input type="text" class="input-item" formControlName="address"></ion-input>
-
+                <p class="invalid-form" *ngIf="customerForm.get('address')?.touched && customerForm.get('address')?.invalid">
+                  *Please provide an address
+                </p>
+            
                 <ion-label position="floating">Mobile*</ion-label>
                 <ion-input type="tel" class="input-item" formControlName="mobileNumber"></ion-input>
-
+                <p class="invalid-form" *ngIf="customerForm.get('mobileNumber')?.touched && customerForm.get('mobileNumber')?.invalid">
+                  *Please provide a mobile number
+                </p>
+            
                 <ion-label position="floating">Email*</ion-label>
                 <ion-input type="email" class="input-item" formControlName="email"></ion-input>
-
+                <p class="invalid-form" *ngIf="customerForm.get('email')?.touched && customerForm.get('email')?.invalid">
+                  *Please provide a valid email address
+                </p>
+            
                 <ion-row>
                   <ion-col size="6" class="padding-right">
                     <ion-label position="floating">City*</ion-label>
                     <ion-input type="text" class="input-item" formControlName="city"></ion-input>
+                    <p class="invalid-form" *ngIf="customerForm.get('city')?.touched && customerForm.get('city')?.invalid">
+                      *Please enter your city
+                    </p>
                   </ion-col>
                   <ion-col size="6" class="ion-no-padding">
                     <ion-label position="floating">Zone</ion-label>
-
-                    <ion-select interface="popover" placeholder="Select Zone" class="input-item" formControlName="city">
+                    <ion-select interface="popover" placeholder="Select Zone" class="input-item" formControlName="zone">
                       <ion-select-option value="dhaka">Dhaka City</ion-select-option>
                       <ion-select-option value="ctg">Chittagong City</ion-select-option>
                       <ion-select-option value="sylhet">Sylhet City</ion-select-option>
                       <ion-select-option value="khulna">Khulna City</ion-select-option>
                       <ion-select-option value="others">Others</ion-select-option>
                     </ion-select>
-
                   </ion-col>
                 </ion-row>
-
-                <ion-label position="floating" formControlName="comment">Comment</ion-label>
-                <ion-textarea class="input-item"></ion-textarea>
-
-                <!-- .div$*4 -->
+            
+                <ion-label position="floating">Comment</ion-label>
+                <ion-textarea class="input-item" formControlName="comment"></ion-textarea>
+                
               </form>
             </div>
+            
           </ion-content>
 
           <div *ngIf="showCart; else customerDetails">
@@ -244,7 +260,7 @@
 
           <ng-template #customerDetails>
             <ion-button expand="block" fill="solid" color="primary"
-              style="margin: 0; height: 58px; background: #ff5722;" (click)="presentAlert()">
+              style="margin: 0; height: 58px; background: #ff5722;" (click)="onConfirmOrder()">
               Confirm Order
             </ion-button>
 

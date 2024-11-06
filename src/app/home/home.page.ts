@@ -110,13 +110,6 @@ export class HomePage implements OnInit {
     );
   }
 
-
-
-
-
-
-
-
   cardClick() {
     console.log(this.cart);
   }
@@ -217,6 +210,15 @@ export class HomePage implements OnInit {
     document.getElementById('navBar')?.click()
   }
 
+  onConfirmOrder() {
+    if (this.customerForm.invalid) {
+      this.customerForm.markAllAsTouched(); // Mark all controls as touched to display errors
+      return; // Prevent form submission if invalid
+    }
+    
+    this.presentAlert();
+  }
+
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Do you want to confirm your order?',
@@ -251,7 +253,7 @@ export class HomePage implements OnInit {
     mobileNumber: ['', Validators.required],
     email: ['', Validators.required],
     city: ['', Validators.required],
-    comment: ['', Validators.required],
+    comment: [''],
   })
 
   navigateHistory() {
