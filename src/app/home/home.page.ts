@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { faXmark, faRotateRight, faGear, faArrowRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { Location, } from '@angular/common';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Messaging, getToken, onMessage, deleteToken } from '@angular/fire/messaging'
+import { Messaging, getToken, onMessage, deleteToken, getMessaging, } from '@angular/fire/messaging'
 import { Observable, tap } from "rxjs";
 
 @Component({
@@ -71,6 +71,7 @@ export class HomePage implements OnInit {
   isQrCodeSizeUpdated = false;
   messaging$ = inject(Messaging);
   message$: any;
+  deviceToken: string = '';
 
   constructor(
     private router: Router,
@@ -81,15 +82,6 @@ export class HomePage implements OnInit {
     private msg: Messaging
   ) {
     this.qrCode = window.location.href;
-    Notification.requestPermission().then(
-      (notificationPermissions: NotificationPermission) => {
-        if (notificationPermissions === "granted") {
-          console.log("Granted");
-        }
-        if (notificationPermissions === "denied") {
-          console.log("Denied");
-        }
-      });
   }
 
   ngOnInit() {
@@ -109,6 +101,13 @@ export class HomePage implements OnInit {
 	    })
     );
   }
+
+
+
+
+
+
+
 
   cardClick() {
     console.log(this.cart);
