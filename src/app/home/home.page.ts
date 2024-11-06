@@ -63,10 +63,8 @@ export class HomePage implements OnInit {
     }
   ]
 
-
   cart: any[] = []
   cartTotal: number = 0
-
   qrCodeWidth = 0;
   isQrCodeSizeUpdated = false;
   messaging$ = inject(Messaging);
@@ -101,13 +99,6 @@ export class HomePage implements OnInit {
 	    })
     );
   }
-
-
-
-
-
-
-
 
   cardClick() {
     console.log(this.cart);
@@ -184,11 +175,13 @@ export class HomePage implements OnInit {
   }
 
   openCustomerReg() {
-    console.log("before pressing" + this.showCart);
-    this.showCart = false
-    console.log("after pressing" + this.showCart);
+    if(this.cart.length>0){
+      this.showCart = false
+    }
+    else{
+      this.presentCustomerAlert()
+    }
   }
-
 
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
@@ -215,12 +208,35 @@ export class HomePage implements OnInit {
       return; // Prevent form submission if invalid
     }
     
-    this.presentAlert();
+    this.presentCartAlert();
   }
 
-  async presentAlert() {
+  async presentCartAlert() {
     const alert = await this.alertController.create({
       header: 'Do you want to confirm your order?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Alert canceled');
+          },
+        },
+        {
+          text: 'Yes',
+          role: 'confirm',
+          handler: () => {
+            console.log('Alert confirmed');
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
+  async presentCustomerAlert() {
+    const alert = await this.alertController.create({
+      header: 'Please select some products',
       buttons: [
         {
           text: 'Cancel',
@@ -266,4 +282,9 @@ export class HomePage implements OnInit {
   navigateScanner() {
     this.router.navigate(['/scanner']);
   }
+
+  refreshPage() {
+    window.location.reload();
+  }
+
 }
