@@ -17,7 +17,7 @@
         <ion-button shape="round" fill="clear" (click)="navigateScanner()">
           <ion-icon slot="icon-only" name="scan"></ion-icon>
         </ion-button>
-        
+
         <!-- cart -->
         <ion-button shape="round" fill="clear" id="open-modal" (click)="cardClick()">
           <ion-icon slot="icon-only" name="cart-sharp"></ion-icon>
@@ -25,7 +25,7 @@
           <div class="cart-badge" *ngIf="cart.length> 0">{{cart.length}}</div>
         </ion-button>
 
-        
+
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
@@ -188,42 +188,48 @@
                   <ion-col size="6" class="padding-right">
                     <ion-label position="floating">First Name*</ion-label>
                     <ion-input type="text" class="input-item" formControlName="firstName"></ion-input>
-                    <p class="invalid-form" *ngIf="customerForm.get('firstName')?.touched && customerForm.get('firstName')?.invalid">
+                    <p class="invalid-form"
+                      *ngIf="customerForm.get('firstName')?.touched && customerForm.get('firstName')?.invalid">
                       *Please fill in your first name
                     </p>
                   </ion-col>
                   <ion-col size="6" class="ion-no-padding">
                     <ion-label position="floating">Last Name*</ion-label>
                     <ion-input type="text" class="input-item" formControlName="lastName"></ion-input>
-                    <p class="invalid-form" *ngIf="customerForm.get('lastName')?.touched && customerForm.get('lastName')?.invalid">
+                    <p class="invalid-form"
+                      *ngIf="customerForm.get('lastName')?.touched && customerForm.get('lastName')?.invalid">
                       *Please fill in your last name
                     </p>
                   </ion-col>
                 </ion-row>
-            
+
                 <ion-label position="floating">Address*</ion-label>
                 <ion-input type="text" class="input-item" formControlName="address"></ion-input>
-                <p class="invalid-form" *ngIf="customerForm.get('address')?.touched && customerForm.get('address')?.invalid">
+                <p class="invalid-form"
+                  *ngIf="customerForm.get('address')?.touched && customerForm.get('address')?.invalid">
                   *Please provide an address
                 </p>
-            
+
                 <ion-label position="floating">Mobile*</ion-label>
                 <ion-input type="tel" class="input-item" formControlName="mobileNumber"></ion-input>
-                <p class="invalid-form" *ngIf="customerForm.get('mobileNumber')?.touched && customerForm.get('mobileNumber')?.invalid">
+                <p class="invalid-form"
+                  *ngIf="customerForm.get('mobileNumber')?.touched && customerForm.get('mobileNumber')?.invalid">
                   *Please provide a mobile number
                 </p>
-            
+
                 <ion-label position="floating">Email*</ion-label>
                 <ion-input type="email" class="input-item" formControlName="email"></ion-input>
-                <p class="invalid-form" *ngIf="customerForm.get('email')?.touched && customerForm.get('email')?.invalid">
+                <p class="invalid-form"
+                  *ngIf="customerForm.get('email')?.touched && customerForm.get('email')?.invalid">
                   *Please provide a valid email address
                 </p>
-            
+
                 <ion-row>
                   <ion-col size="6" class="padding-right">
                     <ion-label position="floating">City*</ion-label>
                     <ion-input type="text" class="input-item" formControlName="city"></ion-input>
-                    <p class="invalid-form" *ngIf="customerForm.get('city')?.touched && customerForm.get('city')?.invalid">
+                    <p class="invalid-form"
+                      *ngIf="customerForm.get('city')?.touched && customerForm.get('city')?.invalid">
                       *Please enter your city
                     </p>
                   </ion-col>
@@ -238,13 +244,13 @@
                     </ion-select>
                   </ion-col>
                 </ion-row>
-            
+
                 <ion-label position="floating">Comment</ion-label>
                 <ion-textarea class="input-item" formControlName="comment"></ion-textarea>
-                
+
               </form>
             </div>
-            
+
           </ion-content>
 
           <div *ngIf="showCart; else customerDetails">
@@ -301,26 +307,32 @@
 
         </ion-label>
       </ion-item>
-      <ion-item button lines="none" (click)="refreshPage()">
-        <ion-icon class="side-nav-icon" aria-hidden="true" name="refresh" slot="start"
-        style="color: #664bfa;"></ion-icon>
-        <ion-label>Reload</ion-label>
-      </ion-item>
 
-      <ion-item button lines="none" (click)="navigateHistory()">
-        <ion-icon class="side-nav-icon" aria-hidden="true" name="home" slot="start" style="color: #61ba91;"></ion-icon>
-        <ion-label>Order History</ion-label>
-      </ion-item>
+      <div class="menu-list">
+        <ion-item button lines="none" (click)="refreshPage()">
+          <ion-icon class="side-nav-icon" aria-hidden="true" name="refresh" slot="start"
+            style="color: #664bfa;"></ion-icon>
+          <ion-label>Reload</ion-label>
+        </ion-item>
 
-      <ion-item button lines="none" (click)="navigateCards()">
-        <ion-icon class="side-nav-icon" aria-hidden="true" name="card" slot="start" style="color: #ffb498;"></ion-icon>
-        <ion-label>Cards</ion-label>
-      </ion-item>
+        <ion-item button lines="none" (click)="navigateHistory()">
+          <ion-icon class="side-nav-icon" aria-hidden="true" name="home" slot="start"
+            style="color: #61ba91;"></ion-icon>
+          <ion-label>Order History</ion-label>
+        </ion-item>
 
-      <ion-item button lines="none" (click)="logout()">
-        <ion-icon class="side-nav-icon" aria-hidden="true" name="log-out" slot="start" style="color: #b44d59;"></ion-icon>
-        <ion-label>Logout</ion-label>
-      </ion-item>
+        <ion-item button lines="none" (click)="navigateCards()">
+          <ion-icon class="side-nav-icon" aria-hidden="true" name="card" slot="start"
+            style="color: #ffb498;"></ion-icon>
+          <ion-label>Cards</ion-label>
+        </ion-item>
+
+        <ion-item button lines="none" (click)="logout()">
+          <ion-icon class="side-nav-icon" aria-hidden="true" name="log-out" slot="start"
+            style="color: #b44d59;"></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-item>
+      </div>
     </ion-list>
 
   </ion-content>
