@@ -1,6 +1,5 @@
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -25,7 +24,6 @@
 }
 
 //locals
-
 h1,
 h2,
 h3,
@@ -36,9 +34,6 @@ p {
   margin: 0;
   padding: 0;
 }
-
-
-
 
 .card-info {
   display: flex;
@@ -65,12 +60,10 @@ p {
 .exp-date {
   display: flex;
   justify-content: flex-end;
-
   bottom: 10px;
   position: absolute;
   right: 10px;
 }
-
 
 p {
   margin: 0;
@@ -83,7 +76,6 @@ ion-card {
 }
 
 .warranty-card {
-
   height: 192px;
 }
 
@@ -95,14 +87,8 @@ ion-card {
 
 .custom-qr {
   height: auto;
-  /* Set your desired height */
   width: auto;
-  /* Width adjusts automatically */
 }
-
-
-
-
 
 .profile-info h2 {
   font-size: 22px;
@@ -125,8 +111,6 @@ ion-card {
   margin: 0;
   color: #000000;
 }
-
-
 
 .network-info {
   margin-top: 15px;
@@ -167,9 +151,7 @@ ion-card {
 
 .img-card {
   position: relative;
-  /* Make the container a relative positioning context */
   display: inline-block;
-  /* Adjust depending on layout */
 }
 
 .Xmark-icon {
@@ -181,12 +163,6 @@ ion-card {
 
 }
 
-// img {
-//   display: block;
-//   max-width: 100%;
-//   height: auto;
-//   /* Ensure the image is responsive */
-// }
 
 .glass-card {
   background: rgba(255, 255, 255, 0.031372549);
@@ -194,12 +170,10 @@ ion-card {
   backdrop-filter: blur(60px);
   border-radius: 15px !important;
   border: 1px solid #ffffff4b;
-  // padding: 15px;
   box-shadow: 0px 0px 8px #ffffff10;
 }
 
 //profile-dropdown
-
 .profile-dropdown {
   border: 1px solid #8c8c8c;
   padding: 25px 25px;
@@ -216,14 +190,9 @@ hr {
 }
 
 //carousel
-
 .qr-container canvas {
   width: 100%;
 }
-
-
-
-
 
 .side-nav-icon {
   background: rgb(0 0 0 / 5%);
@@ -234,8 +203,6 @@ hr {
 
 
 //flipping card
-
-/* From Uiverse.io by vamsidevendrakumar */
 .card {
   height: 400px;
   perspective: 1000px;
@@ -273,13 +240,9 @@ hr {
   border: 2px solid #1ee1af;
   border-radius: 10px;
   transform: rotateY(0deg);
-
-  // background-image: url('../../assets/wave-textures/texture.png');
-  /* Path to your image */
   background-size: cover;
-  /* Ensures the image covers the entire card */
   background-position: center;
-  /* Centers the image */
+
 }
 
 .card-back {
@@ -303,20 +266,9 @@ hr {
 
 }
 
-
-
-
 .margin-bottom {
   margin-bottom: 10px;
 }
-
-// for mobile screens
-@media (max-width: 992px) {
-  .card {
-    height: 200px !important;
-  }
-}
-
 
 .card-status {
   background: #1a73e8;
@@ -342,7 +294,6 @@ hr {
 }
 
 .input-item {
-  // --highlight-color-focused: #000000;
   --background: #ffffff;
   --border-color: #c4c4c4;
   --padding-start: 10px;
@@ -357,7 +308,6 @@ hr {
 }
 
 //form
-
 .invalid-form{
   margin-top: -12px;
   font-size: 12px;
@@ -369,15 +319,15 @@ ion-select{
   max-width: 70% !important;
 }
 
-// ion-menu ion-item{
-//   padding: 10px 0px;
-// }
-
-// ion-menu button{
-//   border-radius: 50px;
-// }
-
 .sidemenu-item{
   border-radius: 50px;
   margin-bottom: 5px;
+}
+
+
+// for mobile screens
+@media (max-width: 992px) {
+  .card {
+    height: 200px !important;
+  }
 }

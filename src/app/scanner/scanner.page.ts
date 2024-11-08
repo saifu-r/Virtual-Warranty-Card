@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScannerPage implements OnInit {
 
+  qrResultString: string= '';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleQrCodeResult(resultString: string) {
+    // console.debug('Result: ', resultString);
+    this.qrResultString = resultString;
+    window.location.href = resultString;
   }
 
 }
