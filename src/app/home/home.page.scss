@@ -228,7 +228,7 @@ hr {
 .side-nav-icon {
   background: rgb(0 0 0 / 5%);
   padding: 10px;
-  margin: 0px 15px 1px -10px;
+  margin: 0px 15px 1px -15px;
   border-radius: 50px;
 }
 
@@ -377,6 +377,7 @@ ion-select{
 //   border-radius: 50px;
 // }
 
-.menu-list ion-items button{
+.sidemenu-item{
   border-radius: 50px;
+  margin-bottom: 5px;
 }
