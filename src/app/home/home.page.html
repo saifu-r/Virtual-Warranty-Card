@@ -24,8 +24,6 @@
           <!-- Notification Badge -->
           <div class="cart-badge" *ngIf="cart.length> 0">{{cart.length}}</div>
         </ion-button>
-
-
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
@@ -160,7 +158,10 @@
 
             <!-- cart -->
             <div [style]="showCart == false ? 'display: none' : 'display: block'">
-              <h4 *ngIf="cart.length==0" style="text-align: center;">Your shopping cart is empty!</h4>
+              <div *ngIf="cart.length==0">
+                <img src="../../assets/images/no-item-added.jpg" alt="no-item-added">
+                <h1 style="text-align: center; color: #ff9500; font-size: 25px; font-family: cursive;">No Item Added to Cart</h1>
+              </div>
               <ion-items>
                 <ion-item *ngFor="let item of cart">
                   <ion-avatar slot="start">
@@ -254,7 +255,7 @@
           </ion-content>
 
           <div *ngIf="showCart; else customerDetails">
-            <ion-item lines="none" style="text-align: center; justify-content: center;">
+            <ion-item lines="none" style="text-align: center; justify-content: center;" *ngIf="cart.length> 0">
               <h1>Total - ৳{{ cartTotal }}</h1>
             </ion-item>
 
