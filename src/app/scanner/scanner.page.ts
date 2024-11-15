@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ export class ScannerPage implements OnInit {
 
   qrResultString: string= '';
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
   }
@@ -18,6 +19,9 @@ export class ScannerPage implements OnInit {
     // console.debug('Result: ', resultString);
     this.qrResultString = resultString;
     window.location.href = resultString;
+  }
+  navigateBack(){
+    this.location.back();
   }
 
 }

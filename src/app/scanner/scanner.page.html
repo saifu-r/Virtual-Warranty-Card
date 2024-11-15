@@ -1,5 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start" (click)="navigateBack()">
+      <ion-button shape="round" slot="icon-only">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Scanner</ion-title>
   </ion-toolbar>
 </ion-header>
